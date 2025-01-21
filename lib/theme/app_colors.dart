@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+
+
 class AppColors {
   // Couleurs principales
   static const Color primary = Color(0xFF9932F3); // Violet
@@ -15,6 +18,9 @@ class AppColors {
   static const Color greenAccent = Color(0xFF5FC88F); // Vert accentué
   static const Color lightBlue = Color(0xFFEBECFF); // Bleu clair
   static const Color lightPurple = Color(0xFF9F9DF3); // Violet clair
+  static const Color fildbackcolor = Color(0xFFF2F2F2);
+  static const Color formiconcolor = Color(0xFF828282);
+// Violet clair
 
 
   // Couleurs de base
@@ -25,4 +31,24 @@ class AppColors {
   // Couleurs de texte
   static const Color textPrimary = Color(0xFF000000); // Noir
   static const Color textSecondary = Color(0xFF757575); // Gris foncé
+
+
+  // Couleur des buttons
+  static const Color btnPrimary = Color(0xFF451482); // violet foncé
+  static const Color btnSecondary = Color(0xFFE0E0E0); // violet foncé
+  static const Color btnGreyPurple = Color(0xFFF0EFF4); // violet foncé
+
+  // Couleur du menu
+  static const Color menuPrimary = Color(0xFF2F1155); // violet foncé
+
+  // icon color
+  static const Color iconPrimary = Color(0xFFB53B43);
+
+
+
+  //divers
+  static const Color agendaRecapBackColors = Color(0xFFFF2F3F7);
+
+
+
 }
