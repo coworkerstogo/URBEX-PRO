@@ -7,8 +7,6 @@ import 'package:urbex_pro/screens/chooseProfileScreen.dart';
 import 'package:urbex_pro/screens/agentImmoHome.dart';
 
 class AgentImmoHomeScreen extends StatelessWidget {
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +19,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
             children: [
               // Bienvenue et notifications
               Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -30,7 +28,9 @@ class AgentImmoHomeScreen extends StatelessWidget {
                         backgroundColor: Colors.purple.withOpacity(0.1),
                         backgroundImage: AssetImage('assets/pictures/1.png'),
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -55,11 +55,14 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     ],
                   ),
                   smallIconBtn(
-                      btncolor:  AppColors.btnPrimary.withOpacity(0.1),
-                      btnicon:  Icon(Icons.notifications_active_outlined,color:  AppColors.btnPrimary,),
-                      shadowColor: Colors.transparent,
-                      radius: BorderRadius.circular(8),
+                    btncolor: AppColors.btnPrimary.withOpacity(0.1),
+                    btnicon: Icon(
+                      Icons.notifications_active_outlined,
+                      color: AppColors.btnPrimary,
                     ),
+                    shadowColor: Colors.transparent,
+                    radius: BorderRadius.circular(8),
+                  ),
                 ],
               ),
               SizedBox(height: 16),
@@ -70,13 +73,13 @@ class AgentImmoHomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [Color(0xFF3E1276), Color(0xFF7422DC)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                 ),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
@@ -120,7 +123,10 @@ class AgentImmoHomeScreen extends StatelessWidget {
 
               // Ajouter un nouveau bien
               CustomButton(
-                lendingWidget: Icon(Icons.add,color: AppColors.btnPrimary,),
+                lendingWidget: Icon(
+                  Icons.add,
+                  color: AppColors.btnPrimary,
+                ),
                 trailingWidget: SizedBox(),
                 btntype: false,
                 btnText: 'Ajouter un nouveau bien',
@@ -134,7 +140,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
               SizedBox(height: 24),
 
               // Actions
-              Text(
+              const Text(
                 "Actions",
                 style: TextStyle(
                   fontSize: 18,
@@ -165,7 +171,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
               SizedBox(height: 16),
 
               // Rapports et analyses
-              Text(
+              const Text(
                 "Rapports et Analyses",
                 style: TextStyle(
                   fontSize: 18,
@@ -173,7 +179,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ReportCard(
@@ -189,11 +195,19 @@ class AgentImmoHomeScreen extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: 20,),
-              Text('Liste des ecrans',style: TextStyle(fontSize: 30),),
-              Divider(color: Colors.black,height: 4,),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Liste des ecrans',
+                style: TextStyle(fontSize: 30),
+              ),
+              Divider(
+                color: Colors.black,
+                height: 4,
+              ),
               TextButton(
-                  onPressed: (){
+                  onPressed: () {
                     //Navigator.pushNamed(context, routeName)
                     Navigator.push(
                       context,
@@ -204,7 +218,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                   },
                   child: Text('agent immo home Screen')),
               TextButton(
-                  onPressed: (){
+                  onPressed: () {
                     //Navigator.pushNamed(context, routeName)
                     Navigator.push(
                       context,
@@ -215,7 +229,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                   },
                   child: Text('choose profile Screen')),
               TextButton(
-                  onPressed: (){
+                  onPressed: () {
                     //Navigator.pushNamed(context, routeName)
                     Navigator.push(
                       context,

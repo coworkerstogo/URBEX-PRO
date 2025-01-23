@@ -5,8 +5,6 @@ import 'package:urbex_pro/components/customCuntryFormField.dart';
 import 'package:urbex_pro/components/customDropDown.dart';
 import 'package:urbex_pro/components/customFormField.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
-import 'package:urbex_pro/screens/chooseProfileScreen.dart';
-import 'package:urbex_pro/screens/agentImmoHome.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 
 

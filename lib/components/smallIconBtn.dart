@@ -19,7 +19,7 @@ class smallIconBtn extends StatelessWidget {
     this.width,
     this.radius,
     this.btnicon,
-    this.border,  // Ajout du paramètre border
+    this.border, // Ajout du paramètre border
   });
 
   @override

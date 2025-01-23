@@ -4,11 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ChooseProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -29,22 +29,26 @@ class ChooseProfileScreen extends StatelessWidget {
               ProfileOption(
                 title: "Agent-Immo",
                 subtitle: "Vendeur De Produit Et De Service",
-                svgPath: "assets/illustrations/svg/agentimmo.svg", // Remplace par le chemin réel
+                svgPath:
+                    "assets/illustrations/svg/agentimmo.svg", // Remplace par le chemin réel
               ),
               ProfileOption(
                 title: "Déménageur",
                 subtitle: "Vendeur De Produit Et De Service",
-                svgPath: "assets/illustrations/svg/demenageur.svg", // Remplace par le chemin réel
+                svgPath:
+                    "assets/illustrations/svg/demenageur.svg", // Remplace par le chemin réel
               ),
               ProfileOption(
                 title: "Vendeur",
                 subtitle: "De Produit",
-                svgPath: "assets/illustrations/svg/vendeur.svg", // Remplace par le chemin réel
+                svgPath:
+                    "assets/illustrations/svg/vendeur.svg", // Remplace par le chemin réel
               ),
               ProfileOption(
                 title: "Prestataire",
                 subtitle: "De Service",
-                svgPath: "assets/illustrations/svg/prestataire.svg", // Remplace par le chemin réel
+                svgPath:
+                    "assets/illustrations/svg/prestataire.svg", // Remplace par le chemin réel
               ),
             ],
           ),
@@ -78,7 +82,6 @@ class ProfileOption extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           //SizedBox(width: 16),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

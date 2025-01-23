@@ -10,7 +10,6 @@ import 'package:urbex_pro/screens/walletScreen.dart';
 import 'package:urbex_pro/screens/widgetScreen.dart';
 import 'package:urbex_pro/widgets/nav_bar_widget.dart';
 
-
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
@@ -25,7 +24,7 @@ class App extends StatelessWidget {
             // Affiche l'écran actif en fonction de l'index
             return IndexedStack(
               index: state.currentIndex,
-              children:  [
+              children: [
                 AgentImmoHomeScreen(),
                 RecapAgendaScreen(),
                 WalletScreen(),

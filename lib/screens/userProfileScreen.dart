@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
+import 'package:urbex_pro/screens/conditionsPolitiquesScreen.dart';
+import 'package:urbex_pro/screens/loginScreen.dart';
+import 'package:urbex_pro/screens/otpCodeScreen.dart';
+import 'package:urbex_pro/screens/settingScreen.dart';
+import 'package:urbex_pro/screens/updatePasswordScreen.dart';
+import 'package:urbex_pro/screens/updateProfileScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
+
+import '../components/customAppBar.dart';
 
 class UserProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text(
-          "Profile",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
+      appBar: CustomAppBar(
         centerTitle: true,
+        title: Text(
+          'Profile',
+          style: TextStyle(color: AppColors.textPrimary),
+        ),
       ),
       body: SafeArea(
         child: Column(
@@ -31,10 +33,11 @@ class UserProfileScreen extends StatelessWidget {
                   CircleAvatar(
                     radius: 40,
                     backgroundColor: Colors.grey[300],
-                    child: SvgPicture.asset("assets/user_image.svg"), // SVG ici
+                    child: SvgPicture.asset(
+                        "assets/pictures/profile.svg"), // SVG ici
                   ),
                   SizedBox(width: 16),
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -44,7 +47,9 @@ class UserProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       SizedBox(height: 4),
+
                       Text(
                         "change",
                         style: TextStyle(
@@ -54,47 +59,105 @@ class UserProfileScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   Spacer(),
-                  Icon(Icons.edit, color: Colors.grey),
+
+                  GestureDetector(
+                    onTap: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UpdateProfileScreen(),
+                      ),
+                    );
+                    },
+                    child: Icon(
+                      Icons.edit_outlined,
+                      color: Colors.grey,
+
+                    ),
+                  )
+
                 ],
               ),
             ),
+
             Expanded(
               child: ListView(
-                padding: EdgeInsets.all(16),
-                children: [
+
+                padding: const EdgeInsets.all(16),
+
+                children:  [
+
                   ProfileOptionTile(
-                    iconPath: Icons.arrow_forward_ios, // Exemple de SVG
+                    iconPath: Icons.settings_rounded, // Exemple de SVG
                     title: "Paramètre",
+                    ontapListtile: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SettingScreen(),
+                        ),
+                      );
+                    },
                   ),
+
                   ProfileOptionTile(
-                    iconPath: Icons.arrow_forward_ios, // Exemple de SVG
+                    iconPath: Icons.home_outlined, // Exemple de SVG
                     title: "Mes Biens",
                   ),
+
                   ProfileOptionTile(
-                    iconPath: Icons.arrow_forward_ios, // Exemple de SVG
+                    iconPath: Icons.share_outlined, // Exemple de SVG
                     title: "Partager Urbex Pro",
                   ),
+
                   ProfileOptionTile(
-                    iconPath: Icons.arrow_forward_ios, // Exemple de SVG
+                    iconPath: Icons.wallet_outlined, // Exemple de SVG
                     title: "Portefeuille",
                   ),
+
                   ProfileOptionTile(
-                    iconPath: Icons.arrow_forward_ios, // Exemple de SVG
+                    iconPath: Icons.key_off_outlined, // Exemple de SVG
                     title: "Changer De Mot De Passe",
+                    ontapListtile: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UpdatePasswordScreen(),
+                        ),
+                      );
+                    },
+
                   ),
+
                   ProfileOptionTile(
-                    iconPath: Icons.arrow_forward_ios, // Exemple de SVG
+                    iconPath: Icons.call_outlined, // Exemple de SVG
                     title: "Support",
+
                   ),
+
                 ],
               ),
             ),
             Column(
               children: [
-                Icon(Icons.logout, color: Colors.black),
-                Text("Déconnexion", style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(height: 16),
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.logout, color: Colors.black),
+                ),
+                // const Icon(Icons.logout, color: Colors.black),
+                const Text(
+                  "Déconnexion",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ],
@@ -107,14 +170,19 @@ class UserProfileScreen extends StatelessWidget {
 class ProfileOptionTile extends StatelessWidget {
   final IconData iconPath;
   final String title;
+  final Function()? ontapListtile;
 
-  const ProfileOptionTile({required this.iconPath, required this.title});
+  const ProfileOptionTile({required this.iconPath, required this.title, this.ontapListtile});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: smallIconBtn(
-        btnicon: Icon(iconPath, size: 24,color: AppColors.btnPrimary,),
+        btnicon: Icon(
+          iconPath,
+          size: 24,
+          color: AppColors.btnPrimary,
+        ),
       ),
       /*Container(
         width: 44,
@@ -137,11 +205,9 @@ class ProfileOptionTile extends StatelessWidget {
         ),
       ),*/
 
-        title: Text(title),
+      title: Text(title),
       trailing: Icon(Icons.arrow_forward_ios, size: 16),
-      onTap: () {
-        // Action pour chaque option
-      },
+      onTap: ontapListtile,
     );
   }
 }
