@@ -69,30 +69,33 @@ class OtpCodeScreen extends StatelessWidget {
                       height: 10,
                     ),
 
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                          text:
-                              " Nous avons envoyé un code de vérification sur le ",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(
-                                  fontSize: 16, fontWeight: FontWeight.w400),
-                          children: const [
-                            TextSpan(
-                                text: "+22893260797. ",
-                                style: TextStyle(
-                                  color: AppColors.btnPrimary,
-                                ),
-                                children: [
-                                  TextSpan(
-                                      text:
-                                          "Veuillez entrer le code de vérification",
-                                      style: TextStyle(
-                                          fontSize: 16, color: Colors.black))
-                                ])
-                          ]),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                            text:
+                                " Nous avons envoyé un code de vérification sur le ",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                    fontSize: 16, fontWeight: FontWeight.w400),
+                            children: const [
+                              TextSpan(
+                                  text: "+22893260797. ",
+                                  style: TextStyle(
+                                    color: AppColors.btnPrimary,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                        text:
+                                            "Veuillez entrer le code de vérification",
+                                        style: TextStyle(
+                                            fontSize: 16, color: Colors.black))
+                                  ])
+                            ]),
+                      ),
                     ),
 
                     SizedBox(height: 46),
@@ -135,23 +138,26 @@ class OtpCodeScreen extends StatelessWidget {
                     SizedBox(
                       height: 70,
                     ),
-                    CustomButton(
-                      height: 60,
-                      width: 354,
-                      fontsize: 18,
-                      btnText: "Vérifier",
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SuccessScreen(),
-                          ),
-                        );
-                      },
-                      lendingWidget: SizedBox(),
-                      trailingWidget: const SizedBox(),
-                      textColor: Colors.white,
-                      btncolor: AppColors.btnPrimary,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: CustomButton(
+                        height: 60,
+                        width: 354,
+                        fontsize: 18,
+                        btnText: "Vérifier",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SuccessScreen(),
+                            ),
+                          );
+                        },
+                        lendingWidget: SizedBox(),
+                        trailingWidget: const SizedBox(),
+                        textColor: Colors.white,
+                        btncolor: AppColors.btnPrimary,
+                      ),
                     ),
 
                     SizedBox(

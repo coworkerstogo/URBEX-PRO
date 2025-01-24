@@ -62,7 +62,7 @@ class UpdatePasswordScreen extends StatelessWidget {
             controller: _controller,
           ),
           const SizedBox(
-            height: 5,
+            height: 12,
           ),
           CustomFormField(
             prefixicon: Icons.key_outlined,
@@ -70,7 +70,7 @@ class UpdatePasswordScreen extends StatelessWidget {
             controller: _controller,
           ),
           const SizedBox(
-            height: 5,
+            height: 12,
           ),
           CustomFormField(
             prefixicon: Icons.key_outlined,
@@ -78,10 +78,6 @@ class UpdatePasswordScreen extends StatelessWidget {
             controller: _controller,
           ),
           const SizedBox(
-            height: 5,
-          ),
-
-          SizedBox(
             height: 30,
           ),
 

@@ -22,7 +22,7 @@ class CustomFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 19), // Ajoutez un margin horizontal de 19px pour correspondre à la largeur du bouton
+      padding: const EdgeInsets.symmetric( horizontal: 19), // Ajoutez un margin horizontal de 19px pour correspondre à la largeur du bouton
       child: Container(
         height: 54,
         width: MediaQuery.of(context).size.width, // Largeur de l'écran moins la marge de chaque côté

@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
           ),
 
           const SizedBox(
-            height: 10,
+            height: 12,
           ),
 
           CustomFormField(
@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
           ),
 
           const SizedBox(
-            height: 10,
+            height: 12,
           ),
 
           Row(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -89,29 +89,31 @@ class LoginScreen extends StatelessWidget {
 
           Column(
             children: [
-              const Padding(padding: EdgeInsets.only(left: 20, right: 20)),
 
               SizedBox(
                 height: 10,
               ),
 
-              CustomButton(
-                height: 60,
-                width: 354,
-                fontsize: 18,
-                btnText: "Connexion",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AgentImmoHomeScreen(),
-                    ),
-                  );
-                },
-                lendingWidget: SizedBox(),
-                trailingWidget: const SizedBox(),
-                textColor: Colors.white,
-                btncolor: AppColors.btnPrimary,
+              Padding(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: CustomButton(
+                  height: 60,
+                  width: 354,
+                  fontsize: 18,
+                  btnText: "Connexion",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AgentImmoHomeScreen(),
+                      ),
+                    );
+                  },
+                  lendingWidget: SizedBox(),
+                  trailingWidget: const SizedBox(),
+                  textColor: Colors.white,
+                  btncolor: AppColors.btnPrimary,
+                ),
               ),
 
               const SizedBox(
