@@ -122,9 +122,11 @@ class AddCardScreen extends StatelessWidget {
               ),
             ),
 
+            SizedBox(height: 23),
 
             Text("Ajouter une carte bancaire"),
 
+            SizedBox(height: 23),
 
             CustomFormField(
               label: "Numéro de la carte bancaire",

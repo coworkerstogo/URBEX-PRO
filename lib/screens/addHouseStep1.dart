@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customDropDown.dart';
-import 'package:urbex_pro/screens/registerAgent/timelineList.dart';
+import 'package:urbex_pro/screens/register/timelineList.dart';
 import 'package:urbex_pro/screens/addHouseStep2.dart';
 import '../components/customAppBar.dart';
 import '../components/customButton.dart';

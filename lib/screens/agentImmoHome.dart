@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customButton.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
+import 'package:urbex_pro/screens/register/registerMooverScreen.dart';
 import 'package:urbex_pro/screens/widgetScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 import 'package:urbex_pro/screens/chooseProfileScreen.dart';
@@ -241,7 +242,20 @@ class AgentImmoHomeScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text('widget Screen')),
+                  child: Text('widget Screen')
+              ),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RegisterMooverScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Register moover Screen')
+              ),
             ],
           ),
         ),

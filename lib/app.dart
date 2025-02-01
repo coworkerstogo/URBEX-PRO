@@ -30,7 +30,7 @@ class App extends StatelessWidget {
               children: [
                 AgentImmoHomeScreen(),
                 RecapAgendaScreen(),
-                WalletSellerScreen(),
+                WalletScreen(),
                 UserProfileScreen(),
               ],
             );

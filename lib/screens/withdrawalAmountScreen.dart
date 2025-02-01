@@ -145,13 +145,13 @@ class WithdrawalAmountScreen extends StatelessWidget {
                                 fontSize: 18, fontWeight: FontWeight.bold)),
                       ],
                     ),
-                    SizedBox(height: 37,),
+                    SizedBox(height: 27,),
                     CustomFormField(
                       label: "55 000 F",
                       controller: _controller,
                     ),
 
-                    SizedBox(height: 300,),
+                    SizedBox(height: 190,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: CustomButton(
