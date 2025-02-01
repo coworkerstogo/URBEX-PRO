@@ -67,21 +67,6 @@ class WithdrawalAmountScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                        child: const Row(
-                          children: [
-                            Icon(Icons.move_up),
-                            Text('Retirer'),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                   const SizedBox(height: 16),

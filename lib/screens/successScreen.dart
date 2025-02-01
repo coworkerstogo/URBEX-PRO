@@ -26,42 +26,44 @@ class SuccessScreen extends StatelessWidget {
 
       backgroundColor: AppColors.surface,
 
-      body: Column(
-        children: [
-          Center(
-              child: Column(
-                  children: [
-                      Padding(padding: EdgeInsets.only(top: 200)),
-                      SvgPicture.asset("assets/pictures/Success.svg"),
-                      SizedBox(height: 10,),
-                      Text("Créer Avec Succèss", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),),
-                      Text("Your number is verified!"),
-                  ]
-              ),
-          ),
-          SizedBox(height: 200,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: CustomButton(
-              height: 60,
-              width: 354,
-              fontsize: 18,
-              btnText: "Suivant",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SuccessScreen(),
-                  ),
-                );
-              },
-              lendingWidget: SizedBox(),
-              trailingWidget: const SizedBox(),
-              textColor: Colors.white,
-              btncolor: AppColors.btnPrimary,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(
+                child: Column(
+                    children: [
+                        Padding(padding: EdgeInsets.only(top: 200)),
+                        SvgPicture.asset("assets/pictures/Success.svg"),
+                        SizedBox(height: 10,),
+                        Text("Créer Avec Succèss", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),),
+                        Text("Your number is verified!"),
+                    ]
+                ),
             ),
-          ),
-        ],
+            SizedBox(height: 200,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: CustomButton(
+                height: 60,
+                width: 354,
+                fontsize: 18,
+                btnText: "Suivant",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SuccessScreen(),
+                    ),
+                  );
+                },
+                lendingWidget: SizedBox(),
+                trailingWidget: const SizedBox(),
+                textColor: Colors.white,
+                btncolor: AppColors.btnPrimary,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

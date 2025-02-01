@@ -22,81 +22,83 @@ class AccountValidateScreen extends StatelessWidget {
 
       backgroundColor: AppColors.surface,
 
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 30,),
-            SvgPicture.asset("assets/pictures/Graphic.svg"),
-            RichText(
-                text: TextSpan(
-                  text: "Compte ",
-                  style: TextStyle(
-                      color: AppColors.textPrimary,
-                      fontSize: 32,
-                      fontWeight: FontWeight.w400
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "Validé",
-                      style: TextStyle(
-                          color: AppColors.btnPrimary,
-                          fontWeight: FontWeight.w500
-                      )
-                    )
-                  ]
-                ),
-            ),
-            RichText(
-              text: TextSpan(
-                  text: "Avec ",
-                  style: TextStyle(
-                      color: AppColors.textPrimary,
-                      fontSize: 32,
-                      fontWeight: FontWeight.w400
-                  ),
-                  children: [
-                    TextSpan(
-                        text: "Succès",
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 30,),
+              SvgPicture.asset("assets/pictures/Graphic.svg"),
+              RichText(
+                  text: TextSpan(
+                    text: "Compte ",
+                    style: TextStyle(
+                        color: AppColors.textPrimary,
+                        fontSize: 32,
+                        fontWeight: FontWeight.w400
+                    ),
+                    children: [
+                      TextSpan(
+                        text: "Validé",
                         style: TextStyle(
                             color: AppColors.btnPrimary,
                             fontWeight: FontWeight.w500
                         )
-                    )
-                  ]
+                      )
+                    ]
+                  ),
               ),
-            ),
-
-            SizedBox(height: 19,),
-
-            RichText(
-              textAlign: TextAlign.center,
+              RichText(
                 text: TextSpan(
-              text: "Inscription Réussie!\n",
-              style: TextStyle(
-                color: AppColors.textPrimary,
+                    text: "Avec ",
+                    style: TextStyle(
+                        color: AppColors.textPrimary,
+                        fontSize: 32,
+                        fontWeight: FontWeight.w400
+                    ),
+                    children: [
+                      TextSpan(
+                          text: "Succès",
+                          style: TextStyle(
+                              color: AppColors.btnPrimary,
+                              fontWeight: FontWeight.w500
+                          )
+                      )
+                    ]
+                ),
               ),
-                  children: [
-                    TextSpan(
-                      text: "Votre compte sera activé sous ",
-                      children: [
-                        TextSpan(text: "48 Heures \n",
-                        style: TextStyle(
-                          color: AppColors.btnPrimary,
-                          fontWeight: FontWeight.w500
-                        ),
-                        ),
-                        TextSpan(text: "Merci pour votre patience !")
-                      ]
-                    )
-                  ]
-            )
-            ),
 
-            SizedBox(height: 80,),
-         
+              SizedBox(height: 19,),
 
-          ],
+              RichText(
+                textAlign: TextAlign.center,
+                  text: TextSpan(
+                text: "Inscription Réussie!\n",
+                style: TextStyle(
+                  color: AppColors.textPrimary,
+                ),
+                    children: [
+                      TextSpan(
+                        text: "Votre compte sera activé sous ",
+                        children: [
+                          TextSpan(text: "48 Heures \n",
+                          style: TextStyle(
+                            color: AppColors.btnPrimary,
+                            fontWeight: FontWeight.w500
+                          ),
+                          ),
+                          TextSpan(text: "Merci pour votre patience !")
+                        ]
+                      )
+                    ]
+              )
+              ),
+
+              SizedBox(height: 80,),
+
+
+            ],
+          ),
         ),
       ),
       bottomNavigationBar:  Padding(

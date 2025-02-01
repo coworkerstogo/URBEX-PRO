@@ -6,6 +6,7 @@ import 'package:urbex_pro/screens/addHouseStep1.dart';
 import 'package:urbex_pro/screens/settingScreen.dart';
 import 'package:urbex_pro/screens/updatePasswordScreen.dart';
 import 'package:urbex_pro/screens/updateProfileScreen.dart';
+import 'package:urbex_pro/screens/walletScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 import '../components/customAppBar.dart';
 
@@ -110,6 +111,14 @@ class UserProfileScreen extends StatelessWidget {
                   ProfileOptionTile(
                     iconPath: Icons.wallet_outlined, // Exemple de SVG
                     title: "Portefeuille",
+                    ontapListtile: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WalletScreen(),
+                        ),
+                      );
+                    },
                   ),
                   ProfileOptionTile(
                     iconPath: Icons.key_off_outlined, // Exemple de SVG

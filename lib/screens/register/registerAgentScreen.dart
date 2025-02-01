@@ -326,27 +326,6 @@ class RegisterAgentStep4 extends StatelessWidget {
           SizedBox(height: 30,),
           Text("Step 4")
 
-         /* Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: CustomButton(
-              height: 60,
-              width: 354,
-              fontsize: 18,
-              btnText: "Suivant",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AgentImmoHomeScreen(),
-                  ),
-                );
-              },
-              lendingWidget: SizedBox(),
-              trailingWidget: const SizedBox(),
-              textColor: Colors.white,
-              btncolor: AppColors.btnPrimary,
-            ),
-          ), */
         ],
       ),
     );
@@ -373,6 +352,8 @@ class RegisterAgentStep3 extends StatelessWidget {
               label: "Nom d'utilisateur",
               controller: _controller
           ),
+
+          SizedBox(height: 19,),
 
           CustomFormField(
               prefixicon: Icons.key_outlined,
@@ -456,27 +437,13 @@ class RegisterAgentStep2 extends StatelessWidget {
               controller: _controller
           ),
 
+          SizedBox(height: 19,),
+
           CustomFormField(
               prefixicon: Icons.tag_outlined,
               label: "NIF de l'agence",
               controller: _controller
           ),
-
-
-        /*  Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: CustomButton(
-              height: 60,
-              width: 354,
-              fontsize: 18,
-              btnText: "Suivant",
-              onPressed: onNext,
-              lendingWidget: SizedBox(),
-              trailingWidget: const SizedBox(),
-              textColor: Colors.white,
-              btncolor: AppColors.btnPrimary,
-            ),
-          ),*/
         ],
       ),
     );
@@ -689,7 +656,7 @@ class StepperComponent extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.textSecondary,
                   fontSize: 9,
-                  fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w500,
+                  fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w400,
                 ),
                 textAlign: TextAlign.center,
             ),
