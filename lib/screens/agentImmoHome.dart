@@ -13,6 +13,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
+
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,6 +138,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                   print('Email: ');
                 },
               ),
+
               SizedBox(height: 24),
 
               // Actions
@@ -168,6 +170,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
+
               SizedBox(height: 16),
 
               // Rapports et analyses
@@ -261,8 +264,8 @@ class ActionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 108,
-      height: 121,
+      width: MediaQuery.of(context).size.width / 3.6,
+      height: MediaQuery.of(context).size.width / 3.5,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: color,

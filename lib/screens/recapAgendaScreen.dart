@@ -233,7 +233,6 @@ class RecapAgendaScreen extends StatelessWidget {
     );
   }
 
-
 }
 
 class CustomIconButton extends StatelessWidget {

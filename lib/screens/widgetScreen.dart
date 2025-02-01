@@ -8,9 +8,6 @@ import 'package:urbex_pro/components/smallIconBtn.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 
 
-
-
-
 class WidgetScreen extends StatelessWidget{
   WidgetScreen({Key? key}) : super(key: key);
 

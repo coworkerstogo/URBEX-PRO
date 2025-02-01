@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:urbex_pro/components/customAppBar.dart';
-import 'package:urbex_pro/components/smallIconBtn.dart';
-import 'package:urbex_pro/screens/addCardScreen.dart';
-import 'package:urbex_pro/screens/withdrawalScreen.dart';
-import 'package:urbex_pro/theme/app_colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:urbex_pro/components/customButton.dart';
+import 'package:urbex_pro/components/customFormField.dart';
+import 'package:urbex_pro/screens/successScreen.dart';
+import '../theme/app_colors.dart';
 
-class WalletScreen extends StatelessWidget {
+class WithdrawalAmountScreen extends StatelessWidget {
+  final TextEditingController _controller = TextEditingController();
+  WithdrawalAmountScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF3E1276), Color(0xFF7422DC)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: const BoxDecoration(color: Colors.grey),
         child: Column(
           children: [
-            // Header section
             SizedBox(
               height: 50,
             ),
+
             const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Center(
                 child: Text(
-                  "Mon Portefeuille",
+                  "Montant du retrait",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -44,14 +41,14 @@ class WalletScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 30,
                         backgroundColor: Colors.white,
                         child: Icon(Icons.account_balance_wallet,
                             size: 30, color: Colors.purple),
                       ),
-                      SizedBox(width: 16),
-                      Expanded(
+                      const SizedBox(width: 16),
+                      const Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -71,21 +68,14 @@ class WalletScreen extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WithdrawalScreen(),
-                            ),
-                          );
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        child: Row(
+                        child: const Row(
                           children: [
                             Icon(Icons.move_up),
                             Text('Retirer'),
@@ -94,50 +84,35 @@ class WalletScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16),
-                  Divider(
+                  const SizedBox(height: 16),
+                  const Divider(
                     color: Colors.white,
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
+                      Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('NB DE CLIENT',
-                              style: TextStyle(
-                                  color: Colors.white70, fontSize: 12)),
-                          Text('#61',
+                          SvgPicture.asset("images/pictures/tmoney.svg"),
+                          const Text('T Money',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16)),
                         ],
                       ),
-                      Column(
+                      const Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('ENTREE DU MOIS',
-                              style: TextStyle(
-                                  color: Colors.white70, fontSize: 12)),
-                          Text('32.4 M',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16)),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('MEILLEUR MOIS',
-                              style: TextStyle(
-                                  color: Colors.white70, fontSize: 12)),
-                          Text('JANV',
+                          Text('+228 93260797',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16)),
                         ],
                       ),
                     ],
                   ),
-                  Divider(
+
+                  const Divider(
                     color: Colors.white,
                     height: 20,
                   ),
@@ -148,7 +123,7 @@ class WalletScreen extends StatelessWidget {
             // Transaction history section
             Expanded(
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft:
                         Radius.circular(16), // Arrondi coin en haut à gauche
@@ -161,56 +136,43 @@ class WalletScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    SizedBox(height: 45,),
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Historique',
+                        Text('Montant de retrait',
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold)),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text('Voir tous',
-                              style: TextStyle(color: Colors.purple)),
-                        ),
                       ],
                     ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: 6, // Example count
-                        itemBuilder: (context, index) {
-                          bool isPayment = index % 2 ==
-                              0; // Alternate between payment and withdrawal
-                          return ListTile(
-                            leading: smallIconBtn(
-                              btncolor: isPayment
-                                  ? Colors.green[100]
-                                  : Colors.blue[100],
-                              btnicon: Icon(
-                                isPayment
-                                    ? Icons.arrow_forward
-                                    : Icons.arrow_back,
-                                color: isPayment ? Colors.green : Colors.blue,
-                              ),
-                              shadowColor: Colors.transparent,
-                              radius: BorderRadius.circular(8),
-                            ),
-                            title: Text(
-                                isPayment ? 'Paiement ...' : 'Retrait ...'),
-                            subtitle: Text('SALVA SHOP'),
-                            trailing: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text('32,128.80 Fcfa',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                                Text('09:10',
-                                    style: TextStyle(color: Colors.grey)),
-                              ],
+                    SizedBox(height: 37,),
+                    CustomFormField(
+                      label: "55 000 F",
+                      controller: _controller,
+                    ),
+
+                    SizedBox(height: 300,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: CustomButton(
+                        height: 60,
+                        width: 354,
+                        fontsize: 18,
+                        btnText: "Valider",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SuccessScreen(),
                             ),
                           );
                         },
+                        lendingWidget: SizedBox(),
+                        trailingWidget: const SizedBox(),
+                        textColor: Colors.white,
+                        btncolor: AppColors.btnPrimary,
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),

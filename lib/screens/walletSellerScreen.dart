@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:urbex_pro/components/customAppBar.dart';
-import 'package:urbex_pro/components/smallIconBtn.dart';
-import 'package:urbex_pro/screens/addCardScreen.dart';
 import 'package:urbex_pro/screens/withdrawalScreen.dart';
-import 'package:urbex_pro/theme/app_colors.dart';
 
-class WalletScreen extends StatelessWidget {
+import '../components/smallIconBtn.dart';
+
+
+class WalletSellerScreen extends StatelessWidget {
+  const WalletSellerScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF3E1276), Color(0xFF7422DC)],
+            colors: [Color(0xFF001705), Color(0xFF15A110)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
         ),
         child: Column(
           children: [
-            // Header section
             SizedBox(
               height: 50,
             ),
+
             const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Center(
@@ -110,7 +111,7 @@ class WalletScreen extends StatelessWidget {
                                   color: Colors.white70, fontSize: 12)),
                           Text('#61',
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 16)),
+                              TextStyle(color: Colors.white, fontSize: 16)),
                         ],
                       ),
                       Column(
@@ -121,7 +122,7 @@ class WalletScreen extends StatelessWidget {
                                   color: Colors.white70, fontSize: 12)),
                           Text('32.4 M',
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 16)),
+                              TextStyle(color: Colors.white, fontSize: 16)),
                         ],
                       ),
                       Column(
@@ -132,7 +133,7 @@ class WalletScreen extends StatelessWidget {
                                   color: Colors.white70, fontSize: 12)),
                           Text('JANV',
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 16)),
+                              TextStyle(color: Colors.white, fontSize: 16)),
                         ],
                       ),
                     ],
@@ -151,9 +152,9 @@ class WalletScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft:
-                        Radius.circular(16), // Arrondi coin en haut à gauche
+                    Radius.circular(16), // Arrondi coin en haut à gauche
                     topRight:
-                        Radius.circular(16), // Arrondi coin en haut à droite
+                    Radius.circular(16), // Arrondi coin en haut à droite
                   ),
                   color: Colors.white,
                 ),
@@ -202,7 +203,7 @@ class WalletScreen extends StatelessWidget {
                               children: [
                                 Text('32,128.80 Fcfa',
                                     style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
+                                    TextStyle(fontWeight: FontWeight.bold)),
                                 Text('09:10',
                                     style: TextStyle(color: Colors.grey)),
                               ],
