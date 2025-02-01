@@ -112,20 +112,19 @@ class AddCardScreen extends StatelessWidget {
                 textColor: AppColors.textPrimary,
                 bordersideColor: AppColors.textPrimary,
                 onPressed: () {
-                  // Logique pour le bouton de soumission
-                  print('Numéro: ');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddCardScreen(),
+                    ),
+                  );
                 },
               ),
             ),
-            const SizedBox(
-              height: 23,
-            ),
+
 
             Text("Ajouter une carte bancaire"),
 
-            SizedBox(
-              height: 13,
-            ),
 
             CustomFormField(
               label: "Numéro de la carte bancaire",
@@ -154,26 +153,28 @@ class AddCardScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 74,
-                ),
-                CustomButton(
-                  height: 60,
-                  width: 354,
-                  fontsize: 18,
-                  btnText: "Enrégistrer",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AgentImmoHomeScreen(),
-                      ),
-                    );
-                  },
-                  lendingWidget: SizedBox(),
-                  trailingWidget: const SizedBox(),
-                  textColor: Colors.white,
-                  btncolor: AppColors.btnPrimary,
+
+                SizedBox(height: 30,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 19.0),
+                  child: CustomButton(
+                    height: 60,
+                    width: 354,
+                    fontsize: 18,
+                    btnText: "Enrégistrer",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AgentImmoHomeScreen(),
+                        ),
+                      );
+                    },
+                    lendingWidget: SizedBox(),
+                    trailingWidget: const SizedBox(),
+                    textColor: Colors.white,
+                    btncolor: AppColors.btnPrimary,
+                  ),
                 ),
               ],
             ),

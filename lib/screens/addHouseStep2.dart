@@ -78,8 +78,6 @@ class AddHouseStep2 extends StatelessWidget {
             height: 150,
             child: CustomFormField(
               title:  'Justificatif frais supplémentaire',
-              minlines: 1,
-              maxlines: 5,
               label: 'Justificatif frais supplémentaire',
               controller: TextEditingController(),
             ),

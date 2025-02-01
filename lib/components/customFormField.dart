@@ -4,7 +4,8 @@ import 'package:urbex_pro/theme/app_colors.dart';
 class CustomFormField extends StatelessWidget {
   final IconData? prefixicon; // Icône
   final IconData? suffixicon; // Icône
-  final String label;  // Texte du label
+  final String label;
+  final String? title;// Texte du label
   final TextEditingController controller; // Pour contrôler la saisie dans le champ
   final TextInputType keyboardType; // Type de clavier (texte, numérique, etc.)
   final String? Function(String?)? validator; // Pour la validation du champ
@@ -13,6 +14,7 @@ class CustomFormField extends StatelessWidget {
     Key? key,
      this.prefixicon,
      this.suffixicon,
+    this.title,
     required this.label,
     required this.controller,
     this.keyboardType = TextInputType.text, // Par défaut, un champ texte

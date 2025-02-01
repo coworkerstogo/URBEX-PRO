@@ -5,6 +5,7 @@ import '../components/customButton.dart';
 import '../components/customDropDown.dart';
 import '../components/customFormField.dart';
 import '../theme/app_colors.dart';
+import 'addCardScreen.dart';
 import 'agentImmoHome.dart';
 
 
@@ -126,16 +127,18 @@ class AddTelNumberScreen extends StatelessWidget {
               label: "Téléphone ",
               controller: _controller,
             ),
-            SizedBox(
-              height: 155,
-            ),
             CustomButton(
               height: 60,
               width: 354,
               fontsize: 18,
               btnText: "Enrégistrer",
               onPressed: () {
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddCardScreen(),
+                  ),
+                );
               },
               lendingWidget: SizedBox(),
               trailingWidget: const SizedBox(),

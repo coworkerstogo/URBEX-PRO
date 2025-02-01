@@ -78,7 +78,7 @@ class UpdatePasswordScreen extends StatelessWidget {
             controller: _controller,
           ),
           const SizedBox(
-            height: 30,
+            height: 50,
           ),
 
           Padding(

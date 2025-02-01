@@ -233,8 +233,6 @@ class AddProductStep1 extends StatelessWidget {
                   height: 150,
                   child: CustomFormField(
                     title: "Description",
-                    minlines: 1,
-                    maxlines: 15,
                     label: 'Description',
                     controller: TextEditingController(),
                   ),

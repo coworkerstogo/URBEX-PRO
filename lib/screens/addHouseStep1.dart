@@ -186,48 +186,52 @@ class AddHouseStep1 extends StatelessWidget {
                   hint: "0",
                   selectedItem: selectedItem,
                 ),
+                SizedBox(height: 19,),
                 CustomFormField(
                   title: 'Taille en m²',
                   label: '200',
                   controller: TextEditingController(),
                 ),
+                SizedBox(height: 24,),
                 SizedBox(
                   //height: 150,
                   child: CustomFormField(
                     title: 'Description',
-                    minlines: 1,
-                    maxlines: 5,
                     label: 'Description',
                     controller: TextEditingController(),
                   ),
                 ),
+                SizedBox(height: 24,),
                 CustomFormField(
                   title: 'Titre',
                   label: 'Le titre à afficher sur votre bien',
                   controller: TextEditingController(),
                 ),
 
-                SizedBox(height: 1,),
-                Row(
-                  children: [
-                    // Utilisation de ValueListenableBuilder pour réagir aux changements
-                    ValueListenableBuilder<bool>(
-                      valueListenable: isChecked,
-                      builder: (context, value, child) {
-                        return Checkbox(
-                          value: value,
-                          activeColor: AppColors.btnPrimary,
-                          onChanged: (newBool) {
-                            isChecked.value = newBool!;
-                          },
-                        );
-                      },
-                    ),
-                    const Text(
-                      "Cocher si le bien est neuf",
-                      style: TextStyle(fontWeight: FontWeight.w500),
-                    ),
-                  ],
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      // Utilisation de ValueListenableBuilder pour réagir aux changements
+                      ValueListenableBuilder<bool>(
+                        valueListenable: isChecked,
+                        builder: (context, value, child) {
+                          return Checkbox(
+                            value: value,
+                            activeColor: AppColors.btnPrimary,
+                            onChanged: (newBool) {
+                              isChecked.value = newBool!;
+                            },
+                          );
+                        },
+                      ),
+                      const Text(
+                        "Cocher si le bien est neuf",
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
                 ),
 
                 SizedBox(height: 60,),

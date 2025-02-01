@@ -133,10 +133,6 @@ class WithdrawalScreen extends StatelessWidget {
                 ),
 
 
-                SizedBox(
-                  height: 80,
-                ),
-
                 CustomButton(
                   height: 60,
                   width: 354,
@@ -146,7 +142,7 @@ class WithdrawalScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AgentImmoHomeScreen(),
+                        builder: (context) => AddCardScreen(),
                       ),
                     );
                   },
