@@ -24,8 +24,9 @@ class WaitingScreen extends StatelessWidget {
       backgroundColor: AppColors.surface,
 
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 50,),
           Center(
             child: CircularCountDownTimer(
               duration: realDuration,

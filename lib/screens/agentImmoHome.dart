@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customButton.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
+import 'package:urbex_pro/screens/accountValidateScreen.dart';
+import 'package:urbex_pro/screens/loginScreen.dart';
+import 'package:urbex_pro/screens/missionHome.dart';
+import 'package:urbex_pro/screens/onboardingScreen.dart';
 import 'package:urbex_pro/screens/register/registerMooverScreen.dart';
+import 'package:urbex_pro/screens/waitingScreen.dart';
 import 'package:urbex_pro/screens/widgetScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 import 'package:urbex_pro/screens/chooseProfileScreen.dart';
 import 'package:urbex_pro/screens/agentImmoHome.dart';
+
 
 class AgentImmoHomeScreen extends StatelessWidget {
   @override
@@ -220,7 +226,65 @@ class AgentImmoHomeScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text('agent immo home Screen')),
+                  child: Text('agent immo home Screen')
+              ),
+                TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MissionHomeScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Mission Home')
+              ),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WaitingScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('waiting screen')),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AccountValidateScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('account validate screen')
+              ),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OnboardingScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('onboarding')),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Login')),
               TextButton(
                   onPressed: () {
                     //Navigator.pushNamed(context, routeName)
