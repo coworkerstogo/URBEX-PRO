@@ -67,29 +67,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
            // color: pages[currentIndex]["color"],
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: 20.0, right: 20.0, bottom: 180.0),
-                  child: OnBoardingAnimation(
-                    controller: _pageController,
-                    pages: pages.map((page) {
-                      return _buildPageContent(
-                        svgPath: page["image"],
-                        title: page["title"],
-                        description: page["description"],
-                      );
-                    }).toList(),
-                    indicatorDotHeight: 7.0,
-                    indicatorDotWidth: 7.0,
-                    indicatorActiveDotColor: AppColors.btnPrimary,
-                    indicatorType: IndicatorType.expandingDots,
-                    indicatorPosition: IndicatorPosition.bottomLeft,
-                    indicatorSwapType: SwapType.normal,
-                  ),
+                OnBoardingAnimation(
+                  controller: _pageController,
+                  pages: pages.map((page) {
+                    return _buildPageContent(
+                      svgPath: page["image"],
+                      title: page["title"],
+                      description: page["description"],
+                    );
+                  }).toList(),
+                  indicatorDotHeight: 7.0,
+                  indicatorDotWidth: 7.0,
+                  indicatorActiveDotColor: AppColors.btnPrimary,
+                  indicatorType: IndicatorType.expandingDots,
+                  indicatorPosition: IndicatorPosition.bottomCenter,
+                  indicatorSwapType: SwapType.normal,
                 ),
                 // Bouton "Skip" sous les indicateurs
                 Positioned(
-                  bottom: 140,
+                  bottom: 120,
                   left: 20,
                   child: GestureDetector(
                     onTap: () {
@@ -187,26 +183,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           height: 300,
           fit: BoxFit.contain,
         ),
-        const SizedBox(height: 40),
-        Text(
-          title,
-          textAlign: TextAlign.left,
-          style: const TextStyle(
-            color: AppColors.textSecondary,
-            fontSize: 24.0,
-            fontWeight: FontWeight.w600,
+      Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+                const SizedBox(height: 40),
+                Text(
+                  title,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  description,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(
+                    color: Colors.black54,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+            ],
           ),
         ),
-        const SizedBox(height: 20),
-        Text(
-          description,
-          textAlign: TextAlign.left,
-          style: const TextStyle(
-            color: AppColors.textPrimary,
-            fontSize: 16.0,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
+      )
       ],
     );
   }

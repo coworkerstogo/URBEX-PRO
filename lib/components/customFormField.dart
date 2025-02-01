@@ -5,10 +5,13 @@ class CustomFormField extends StatelessWidget {
   final IconData? prefixicon; // Icône
   final IconData? suffixicon; // Icône
   final String label;
+  final double? formwidth;
+  final double? formheight;
   final String? title;// Texte du label
   final TextEditingController controller; // Pour contrôler la saisie dans le champ
   final TextInputType keyboardType; // Type de clavier (texte, numérique, etc.)
   final String? Function(String?)? validator; // Pour la validation du champ
+  final EdgeInsetsGeometry? formpadding;
 
   const CustomFormField({
     Key? key,
@@ -18,16 +21,19 @@ class CustomFormField extends StatelessWidget {
     required this.label,
     required this.controller,
     this.keyboardType = TextInputType.text, // Par défaut, un champ texte
-    this.validator, // Validation optionnelle
+    this.validator, 
+    this.formwidth, 
+    this.formheight, 
+    this.formpadding, // Validation optionnelle
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric( horizontal: 19), // Ajoutez un margin horizontal de 19px pour correspondre à la largeur du bouton
+      padding: formpadding ?? const EdgeInsets.symmetric( horizontal: 19), // Ajoutez un margin horizontal de 19px pour correspondre à la largeur du bouton
       child: Container(
-        height: 54,
-        width: MediaQuery.of(context).size.width, // Largeur de l'écran moins la marge de chaque côté
+        height: formheight ?? 54,
+        width: formwidth ?? MediaQuery.of(context).size.width, // Largeur de l'écran moins la marge de chaque côté
         child: TextFormField(
           controller: controller,
           keyboardType: keyboardType,
