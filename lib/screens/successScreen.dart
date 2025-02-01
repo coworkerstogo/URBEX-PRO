@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:urbex_pro/screens/otpCodeScreen.dart';
 import '../components/customAppBar.dart';
 import '../components/customButton.dart';
 import '../theme/app_colors.dart';
@@ -44,7 +45,7 @@ class SuccessScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SuccessScreen(),
+                  builder: (context) => OtpCodeScreen(),
                 ),
               );
             },

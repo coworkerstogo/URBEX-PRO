@@ -6,6 +6,7 @@ import 'package:urbex_pro/components/smallIconBtn.dart';
 import 'package:urbex_pro/screens/conditionsPolitiquesScreen.dart';
 import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/successScreen.dart';
+import 'package:urbex_pro/screens/waitingScreen.dart';
 
 import '../theme/app_colors.dart';
 import 'agentImmoHome.dart';
@@ -144,7 +145,7 @@ class OtpCodeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SuccessScreen(),
+                            builder: (context) => WaitingScreen(),
                           ),
                         );
                       },

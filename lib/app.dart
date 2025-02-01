@@ -4,10 +4,13 @@ import 'package:urbex_pro/managers/bloc/menu_manager_bloc.dart';
 import 'package:urbex_pro/managers/bloc/menu_manager_state.dart';
 import 'package:urbex_pro/screens/chooseProfileScreen.dart';
 import 'package:urbex_pro/screens/agentImmoHome.dart';
+import 'package:urbex_pro/screens/onboardingScreen.dart';
 import 'package:urbex_pro/screens/recapAgendaScreen.dart';
 import 'package:urbex_pro/screens/userProfileScreen.dart';
 import 'package:urbex_pro/screens/walletScreen.dart';
+import 'package:urbex_pro/screens/walletSellerScreen.dart';
 import 'package:urbex_pro/screens/widgetScreen.dart';
+import 'package:urbex_pro/screens/withdrawalAmountScreen.dart';
 import 'package:urbex_pro/widgets/nav_bar_widget.dart';
 
 class App extends StatelessWidget {
@@ -27,7 +30,7 @@ class App extends StatelessWidget {
               children: [
                 AgentImmoHomeScreen(),
                 RecapAgendaScreen(),
-                WalletScreen(),
+                WalletSellerScreen(),
                 UserProfileScreen(),
               ],
             );

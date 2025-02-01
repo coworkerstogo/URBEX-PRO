@@ -13,15 +13,6 @@ class ConditionsPolitiquesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        centerTitle: true,
-        title: Text(
-          "Condition d'utilisation",
-          style: TextStyle(color: AppColors.textPrimary),
-        ),
-      ),
-
-      backgroundColor: AppColors.surface,
 
       body: SingleChildScrollView(
         child: Padding(

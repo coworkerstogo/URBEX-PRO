@@ -20,6 +20,7 @@ class AppColors {
   static const Color lightPurple = Color(0xFF9F9DF3); // Violet clair
   static const Color fildbackcolor = Color(0xFFF2F2F2);
   static const Color formiconcolor = Color(0xFF828282);
+  static const Color formcolor = Color(0xFFE0E0E0);
 // Violet clair
 
 

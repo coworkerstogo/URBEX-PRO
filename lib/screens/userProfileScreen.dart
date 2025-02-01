@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:urbex_pro/screens/registerAgent/timelineList.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
-import 'package:urbex_pro/screens/conditionsPolitiquesScreen.dart';
-import 'package:urbex_pro/screens/loginScreen.dart';
-import 'package:urbex_pro/screens/otpCodeScreen.dart';
+import 'package:urbex_pro/screens/addHouseStep1.dart';
 import 'package:urbex_pro/screens/settingScreen.dart';
 import 'package:urbex_pro/screens/updatePasswordScreen.dart';
 import 'package:urbex_pro/screens/updateProfileScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
-
 import '../components/customAppBar.dart';
+
 
 class UserProfileScreen extends StatelessWidget {
   @override
@@ -22,6 +21,7 @@ class UserProfileScreen extends StatelessWidget {
           style: TextStyle(color: AppColors.textPrimary),
         ),
       ),
+
       body: SafeArea(
         child: Column(
           children: [
@@ -47,9 +47,7 @@ class UserProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-
                       SizedBox(height: 4),
-
                       Text(
                         "change",
                         style: TextStyle(
@@ -59,39 +57,32 @@ class UserProfileScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-
                   Spacer(),
-
                   GestureDetector(
-                    onTap: () {Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => UpdateProfileScreen(),
-                      ),
-                    );
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UpdateProfileScreen(),
+                        ),
+                      );
                     },
                     child: Icon(
                       Icons.edit_outlined,
                       color: Colors.grey,
-
                     ),
                   )
-
                 ],
               ),
             ),
-
             Expanded(
               child: ListView(
-
                 padding: const EdgeInsets.all(16),
-
-                children:  [
-
+                children: [
                   ProfileOptionTile(
                     iconPath: Icons.settings_rounded, // Exemple de SVG
                     title: "Paramètre",
-                    ontapListtile: (){
+                    ontapListtile: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -100,26 +91,30 @@ class UserProfileScreen extends StatelessWidget {
                       );
                     },
                   ),
-
                   ProfileOptionTile(
                     iconPath: Icons.home_outlined, // Exemple de SVG
                     title: "Mes Biens",
+                    ontapListtile: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddHouseStep1(),
+                        ),
+                      );
+                    },
                   ),
-
                   ProfileOptionTile(
                     iconPath: Icons.share_outlined, // Exemple de SVG
                     title: "Partager Urbex Pro",
                   ),
-
                   ProfileOptionTile(
                     iconPath: Icons.wallet_outlined, // Exemple de SVG
                     title: "Portefeuille",
                   ),
-
                   ProfileOptionTile(
                     iconPath: Icons.key_off_outlined, // Exemple de SVG
                     title: "Changer De Mot De Passe",
-                    ontapListtile: (){
+                    ontapListtile: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -127,15 +122,11 @@ class UserProfileScreen extends StatelessWidget {
                         ),
                       );
                     },
-
                   ),
-
                   ProfileOptionTile(
                     iconPath: Icons.call_outlined, // Exemple de SVG
                     title: "Support",
-
                   ),
-
                 ],
               ),
             ),
@@ -146,7 +137,7 @@ class UserProfileScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginScreen(),
+                        builder: (context) => CustomTimelineList(),
                       ),
                     );
                   },
@@ -172,7 +163,8 @@ class ProfileOptionTile extends StatelessWidget {
   final String title;
   final Function()? ontapListtile;
 
-  const ProfileOptionTile({required this.iconPath, required this.title, this.ontapListtile});
+  const ProfileOptionTile(
+      {required this.iconPath, required this.title, this.ontapListtile});
 
   @override
   Widget build(BuildContext context) {

@@ -30,84 +30,82 @@ class UpdatePasswordScreen extends StatelessWidget {
 
       backgroundColor: Colors.white,
 
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        children: [
-          SizedBox(
-            height: 74,
-          ),
-          SvgPicture.asset("assets/pictures/pana.svg"),
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              textAlign: TextAlign.center,
-              "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since ",
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+        
+          children: [
+            SizedBox(
+              height: 74,
+            ),
+            SvgPicture.asset("assets/pictures/pana.svg"),
+            SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                textAlign: TextAlign.center,
+                "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since ",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          CustomFormField(
-            prefixicon: Icons.key_outlined,
-            label: "Mot de passe actuel",
-            controller: _controller,
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          CustomFormField(
-            prefixicon: Icons.key_outlined,
-            label: "Nouveau mot de passe",
-            controller: _controller,
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          CustomFormField(
-            prefixicon: Icons.key_outlined,
-            label: "Confirmation du mot de passe",
-            controller: _controller,
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-
-          SizedBox(
-            height: 30,
-          ),
-
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child:CustomButton(
-              height: 60,
-              width: 354,
-              fontsize: 18,
-              btnText: "Confirmer",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SuccessScreen(),
-                  ),
-                );
-              },
-              lendingWidget: SizedBox(),
-              trailingWidget: const SizedBox(),
-              textColor: Colors.white,
-              btncolor: AppColors.btnPrimary,
+            SizedBox(
+              height: 30,
             ),
-          )
-
-        ],
+            CustomFormField(
+              prefixicon: Icons.key_outlined,
+              label: "Mot de passe actuel",
+              controller: _controller,
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            CustomFormField(
+              prefixicon: Icons.key_outlined,
+              label: "Nouveau mot de passe",
+              controller: _controller,
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            CustomFormField(
+              prefixicon: Icons.key_outlined,
+              label: "Confirmation du mot de passe",
+              controller: _controller,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+        
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child:CustomButton(
+                height: 60,
+                width: 354,
+                fontsize: 18,
+                btnText: "Confirmer",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SuccessScreen(),
+                    ),
+                  );
+                },
+                lendingWidget: SizedBox(),
+                trailingWidget: const SizedBox(),
+                textColor: Colors.white,
+                btncolor: AppColors.btnPrimary,
+              ),
+            )
+        
+          ],
+        ),
       ),
     );
   }
