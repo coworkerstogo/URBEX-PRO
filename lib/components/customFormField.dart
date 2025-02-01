@@ -4,24 +4,16 @@ import 'package:urbex_pro/theme/app_colors.dart';
 class CustomFormField extends StatelessWidget {
   final IconData? prefixicon; // Icône
   final IconData? suffixicon; // Icône
-  final String label;
-  final String? title;
-  final int? maxlines;
-  final int? minlines;// Texte du label
-  final bool isCentered;
+  final String label;  // Texte du label
   final TextEditingController controller; // Pour contrôler la saisie dans le champ
   final TextInputType keyboardType; // Type de clavier (texte, numérique, etc.)
   final String? Function(String?)? validator; // Pour la validation du champ
 
   const CustomFormField({
     Key? key,
-    this.prefixicon,
-    this.suffixicon,
-    this.title,
-    this.maxlines,
-    this.minlines,
+     this.prefixicon,
+     this.suffixicon,
     required this.label,
-    this.isCentered = false,
     required this.controller,
     this.keyboardType = TextInputType.text, // Par défaut, un champ texte
     this.validator, // Validation optionnelle
@@ -30,48 +22,28 @@ class CustomFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 19), // Ajoutez un margin horizontal de 19px pour correspondre à la largeur du bouton
-      child: Column(
-        children: [
-          if (title != null) // Vérifie si `title` n'est pas nul
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              title!,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.left,
+      padding: const EdgeInsets.symmetric( horizontal: 19), // Ajoutez un margin horizontal de 19px pour correspondre à la largeur du bouton
+      child: Container(
+        height: 54,
+        width: MediaQuery.of(context).size.width, // Largeur de l'écran moins la marge de chaque côté
+        child: TextFormField(
+          controller: controller,
+          keyboardType: keyboardType,
+          validator: validator,
+          decoration: InputDecoration(
+            prefixIcon: Icon(prefixicon, color: AppColors.formiconcolor),
+            suffixIcon: Icon(suffixicon, color: AppColors.formiconcolor),// Icône à gauche
+            hintText: label,
+            filled: true,
+            fillColor: AppColors.fildbackcolor,// Texte du label
+            labelStyle: TextStyle(color: AppColors.formiconcolor), // Couleur du label
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16), // Rayon du champ
+              borderSide: BorderSide(color: AppColors.btnPrimary), // Couleur du bord
             ),
+            contentPadding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 20.0), // Ajuste la hauteur
           ),
-          Container(
-            height: 54,
-            width: MediaQuery.of(context).size.width, // Largeur de l'écran moins la marge de chaque côté
-            child: TextFormField(
-              controller: controller,
-              minLines: minlines,
-              maxLines: maxlines,
-              textAlign: isCentered ? TextAlign.center : TextAlign.start,
-              keyboardType: keyboardType,
-              validator: validator,
-              decoration: InputDecoration(
-                prefixIcon: Icon(prefixicon, color: AppColors.formiconcolor),
-                suffixIcon: Icon(suffixicon, color: AppColors.formiconcolor),// Icône à gauche
-                hintText: label,
-
-                filled: true,
-                fillColor: AppColors.fildbackcolor,// Texte du label
-                labelStyle: TextStyle(color: AppColors.formiconcolor), // Couleur du label
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16), // Rayon du champ
-                  borderSide: BorderSide(color: AppColors.btnPrimary), // Couleur du bord
-                ),
-                contentPadding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 15.0), // Ajuste la hauteur
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

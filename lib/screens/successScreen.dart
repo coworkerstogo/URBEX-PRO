@@ -1,10 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:urbex_pro/screens/otpCodeScreen.dart';
 import '../components/customAppBar.dart';
 import '../components/customButton.dart';
 import '../theme/app_colors.dart';
+
+
+
+
+
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key});
@@ -36,23 +40,26 @@ class SuccessScreen extends StatelessWidget {
               ),
           ),
           SizedBox(height: 200,),
-          CustomButton(
-            height: 60,
-            width: 354,
-            fontsize: 18,
-            btnText: "Suivant",
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => OtpCodeScreen(),
-                ),
-              );
-            },
-            lendingWidget: SizedBox(),
-            trailingWidget: const SizedBox(),
-            textColor: Colors.white,
-            btncolor: AppColors.btnPrimary,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: CustomButton(
+              height: 60,
+              width: 354,
+              fontsize: 18,
+              btnText: "Suivant",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SuccessScreen(),
+                  ),
+                );
+              },
+              lendingWidget: SizedBox(),
+              trailingWidget: const SizedBox(),
+              textColor: Colors.white,
+              btncolor: AppColors.btnPrimary,
+            ),
           ),
         ],
       ),

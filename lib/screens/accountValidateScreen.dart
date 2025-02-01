@@ -24,6 +24,7 @@ class AccountValidateScreen extends StatelessWidget {
 
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 30,),
             SvgPicture.asset("assets/pictures/Graphic.svg"),
@@ -93,28 +94,32 @@ class AccountValidateScreen extends StatelessWidget {
             ),
 
             SizedBox(height: 80,),
-            CustomButton(
-              height: 60,
-              width: 354,
-              fontsize: 18,
-              btnText: "Se Connecter",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginScreen(),
-                  ),
-                );
-              },
-              lendingWidget: SizedBox(),
-              trailingWidget: const SizedBox(),
-              textColor: Colors.white,
-              btncolor: AppColors.btnPrimary,
-            ),
+         
 
           ],
         ),
       ),
+      bottomNavigationBar:  Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20),
+              child: CustomButton(
+                height: 60,
+                width: 354,
+                fontsize: 18,
+                btnText: "Se Connecter",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  );
+                },
+                lendingWidget: SizedBox(),
+                trailingWidget: const SizedBox(),
+                textColor: Colors.white,
+                btncolor: AppColors.btnPrimary,
+              ),
+            ),
     );
   }
 }
