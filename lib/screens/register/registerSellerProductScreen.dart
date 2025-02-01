@@ -10,16 +10,14 @@ import '../loginScreen.dart';
 import '../successScreen.dart';
 
 
-
-class RegisterMooverScreen extends StatefulWidget {
-  const RegisterMooverScreen({super.key});
+class RegisterSellerProductScreen extends StatefulWidget {
+  const RegisterSellerProductScreen({super.key});
 
   @override
-  State<RegisterMooverScreen> createState() => _RegisterMooverScreenState();
+  State<RegisterSellerProductScreen> createState() => _RegisterSellerProductScreen();
 }
 
-
-class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
+class _RegisterSellerProductScreen extends State<RegisterSellerProductScreen> {
   int _currentIndex = 0;
   PageController _pageController = PageController();
 
@@ -58,13 +56,10 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
   void initState() {
     super.initState();
     _steps.addAll([
-        RegisterAgentStep1(onNext: _onNext),
-        RegisterMooverStep2(onNext: _onNext),
-        RegisterMooverStep3(onNext: _onNext),
-        RegisterMooverStep4(onNext: _onNext,)
+      RegisterSellerProductScreenStep1(onNext: _onNext),
+      RegisterSellerProductScreenStep2(onNext: _onNext),
     ]);
   }
-
 
 
   @override
@@ -172,119 +167,10 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
 
 
 
-class RegisterMooverStep4 extends StatelessWidget {
-  final ValueNotifier<String?> selectedItem = ValueNotifier<String?>(null);
+class RegisterSellerProductScreenStep2 extends StatelessWidget{
   final VoidCallback onNext;
   final TextEditingController _controller = TextEditingController();
-  RegisterMooverStep4
-      ({super.key, required this.onNext});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-      backgroundColor: AppColors.surface,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 34,),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 19.0),
-                  child: Text(
-                    "Choisissez votre type de véhicule",
-                  ),
-                ),
-              ],
-            ),
-
-            SizedBox(height: 19,),
-
-            Text(
-              "Il reste un élément à mettre",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600
-              ),
-            ),
-
-            SizedBox(height: 19,),
-
-            CustomFormField(
-                prefixicon: Icons.directions_car_filled_outlined,
-                label: "Model du véhicule",
-                controller: _controller
-            ),
-
-            SizedBox(height: 19,),
-
-            CustomFormField(
-                prefixicon: Icons.tag_outlined,
-                label: "Capacité de chargement",
-                controller: _controller
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(top: 19, left: 19, right: 19),
-              child: SizedBox(
-                height: 140,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: AppColors.textSecondary)
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
-                    child: CustomButton(
-                        btnText: "Importer des photos du véhicule",
-                        btncolor: AppColors.surface,
-                        bordersideColor: AppColors.btnPrimary,
-                        onPressed: () {
-
-                        },
-                        lendingWidget: Icon(
-                          Icons.add,
-                          color: AppColors.textSecondary,
-                        ),
-                        textColor: AppColors.textSecondary,
-                        trailingWidget: SizedBox()
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 12,),
-
-            CustomDropdownField(
-              items: ['Maritime', 'Savane', 'Kara', 'Plateaux', 'Centrale'],
-              hint: "Régions couvertes",
-              selectedItem: selectedItem,
-            ),
-
-            CustomDropdownField(
-              items: ['Maritime', 'Savane', 'Kara', 'Plateaux', 'Centrale'],
-              hint: "ville de couvertes",
-              selectedItem: selectedItem,
-            ),
-
-            SizedBox(height: 19,),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-class RegisterMooverStep3 extends StatelessWidget {
-  final VoidCallback onNext;
-  final TextEditingController _controller = TextEditingController();
-  RegisterMooverStep3({super.key, required this.onNext});
+  RegisterSellerProductScreenStep2({super.key, required this.onNext });
 
   @override
   Widget build(BuildContext context) {
@@ -325,116 +211,10 @@ class RegisterMooverStep3 extends StatelessWidget {
 }
 
 
-
-class RegisterMooverStep2 extends StatelessWidget {
+class RegisterSellerProductScreenStep1 extends StatelessWidget {
   final VoidCallback onNext;
   final TextEditingController _controller = TextEditingController();
-  RegisterMooverStep2
-({super.key, required this.onNext});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-      backgroundColor: AppColors.surface,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 34,),
-        
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 19.0, ),
-              child: SizedBox(
-                height: 140,
-                width: 380,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: AppColors.textSecondary)
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
-                    child: CustomButton(
-                        btnText: "Importer vos pièces d’identité",
-                        btncolor: AppColors.surface,
-                        bordersideColor: AppColors.btnPrimary,
-                        onPressed: () {
-                          // Logique pour le bouton de soumission
-                          print('Email: ');
-                        },
-                        lendingWidget: Icon(
-                          Icons.add,
-                          color: AppColors.textSecondary,
-                        ),
-                        textColor: AppColors.textSecondary,
-                        trailingWidget: SizedBox()
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            SizedBox(height: 19,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 19.0),
-              child: SizedBox(
-                height: 140,
-                width: 380,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: AppColors.textSecondary)
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
-                    child: CustomButton(
-                        btnText: "Importer votre permis de conduire",
-                        btncolor: AppColors.surface,
-                        bordersideColor: AppColors.btnPrimary,
-                        onPressed: () {
-                          // Logique pour le bouton de soumission
-                          print('Email: ');
-                        },
-                        lendingWidget: Icon(
-                          Icons.add,
-                          color: AppColors.textSecondary,
-                        ),
-                        textColor: AppColors.textSecondary,
-                        trailingWidget: SizedBox()
-                    ),
-                  ),
-                ),
-              ),
-            ),
-        
-            SizedBox(height: 19,),
-        
-            CustomFormField(
-                prefixicon: Icons.tag_outlined,
-                label: "NIF de l'agence",
-                controller: _controller
-            ),
-
-            SizedBox(height: 19,),
-            CustomFormField(
-                prefixicon: Icons.tag_outlined,
-                label: "Immatriculation du véhicule",
-                controller: _controller
-            ),
-        
-            SizedBox(height: 19,),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
-class RegisterAgentStep1 extends StatelessWidget {
-  final VoidCallback onNext;
-  final TextEditingController _controller = TextEditingController();
-  RegisterAgentStep1({super.key, required this.onNext });
+  RegisterSellerProductScreenStep1({super.key, required this.onNext});
 
   @override
   Widget build(BuildContext context) {
@@ -556,8 +336,7 @@ class RegisterAgentStep1 extends StatelessWidget {
         ),
       ),
     );
-  }
-}
+  }}
 
 
 
@@ -639,7 +418,7 @@ class StepperComponent extends StatelessWidget {
                 fontSize: 9,
                 fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w500,
               ),
-             // textAlign: TextAlign.center,
+              // textAlign: TextAlign.center,
             ),
           ),
         ],

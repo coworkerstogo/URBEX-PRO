@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/successScreen.dart';
 import '../../components/customButton.dart';
 import '../../components/customCuntryFormField.dart';
@@ -98,7 +99,7 @@ class _CustomTimelineListState extends State<CustomTimelineList> {
                     "Informations \n Personnelles",
                     "Informations \n de vérification",
                     "Informations \n de connexion",
-                    "Informations sur \n les services",
+                    "Informations  \n sur services",
                     "Conditions \n et politiques",
                   ],
                 ),
@@ -506,29 +507,33 @@ class RegisterAgentStep1 extends StatelessWidget {
                 controller: _controller
             ),
 
+            SizedBox(height: 19,),
             CustomFormField(
                 prefixicon: Icons.person_outlined,
                 label: "Prénom",
                 controller: _controller
             ),
 
+            SizedBox(height: 19,),
             CustomFormField(
                 prefixicon: Icons.real_estate_agent_outlined,
                 label: "Nom de l'agence",
                 controller: _controller
             ),
 
-            SizedBox(height: 12,),
+            SizedBox(height: 19,),
 
             CustomCountryFormField(),
 
-            SizedBox(height: 12,),
+            SizedBox(height: 19,),
 
             CustomFormField(
                 prefixicon: Icons.email_outlined,
                 label: "Email",
                 controller: _controller
             ),
+
+            SizedBox(height: 19,),
 
             CustomFormField(
                 prefixicon: Icons.location_on_outlined,
@@ -537,7 +542,7 @@ class RegisterAgentStep1 extends StatelessWidget {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 12, bottom: 30, left: 19, right: 19),
+              padding: const EdgeInsets.only(top: 19, left: 19, right: 19),
               child: SizedBox(
                 height: 140,
                 child: Container(
@@ -566,38 +571,36 @@ class RegisterAgentStep1 extends StatelessWidget {
               ),
             ),
 
-           /* Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 19),
-              child: CustomButton(
-                height: 60,
-                width: 354,
-                fontsize: 18,
-                btnText: "Suivant",
-                onPressed: onNext,
-                lendingWidget: SizedBox(),
-                trailingWidget: const SizedBox(),
-                textColor: Colors.white,
-                btncolor: AppColors.btnPrimary,
-              ),
-            ),*/
-
-            RichText(text: TextSpan(
-                text:  "J'ai un compte ",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: AppColors.textPrimary,
-                  fontWeight: FontWeight.w500,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("J'ai un compte ",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: AppColors.textPrimary,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-                children: [
-                  TextSpan(
-                    text: "Je me connecte",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  )
-                ]
-            )),
+                TextButton(
+                    onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          )
+                      );
+                    },
+                    child: Text(
+                      "Je me connecte",
+                      style: TextStyle(
+                        color: AppColors.btnPrimary,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                )
+              ],
+            ),
 
             SizedBox(height: 30,)
           ],

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customButton.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
+import 'package:urbex_pro/screens/onboardingScreen.dart';
 import 'package:urbex_pro/screens/register/registerMooverScreen.dart';
+import 'package:urbex_pro/screens/register/registerSellerProductScreen.dart';
+import 'package:urbex_pro/screens/register/registerServiceProviderScreen.dart';
 import 'package:urbex_pro/screens/widgetScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 import 'package:urbex_pro/screens/chooseProfileScreen.dart';
@@ -243,6 +246,17 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     );
                   },
                   child: Text('widget Screen')
+              ),TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OnboardingScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('onboarding Screen')
               ),
               TextButton(
                   onPressed: () {
@@ -255,6 +269,30 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     );
                   },
                   child: Text('Register moover Screen')
+              ),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RegisterServiceProviderScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Register provider Screen')
+              ),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RegisterSellerProductScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Register seller product Screen')
               ),
             ],
           ),

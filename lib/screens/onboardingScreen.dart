@@ -192,7 +192,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           title,
           textAlign: TextAlign.left,
           style: const TextStyle(
-            color: Colors.black,
+            color: AppColors.textSecondary,
             fontSize: 24.0,
             fontWeight: FontWeight.w600,
           ),
@@ -202,7 +202,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           description,
           textAlign: TextAlign.left,
           style: const TextStyle(
-            color: Colors.black54,
+            color: AppColors.textPrimary,
             fontSize: 16.0,
             fontWeight: FontWeight.w400,
           ),
