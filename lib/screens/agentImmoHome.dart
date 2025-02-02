@@ -6,6 +6,7 @@ import 'package:urbex_pro/screens/addHouseStep1.dart';
 import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/missionHome.dart';
 import 'package:urbex_pro/screens/onboardingScreen.dart';
+import 'package:urbex_pro/screens/propertyDetailScreen.dart';
 import 'package:urbex_pro/screens/register/registerMooverScreen.dart';
 import 'package:urbex_pro/screens/register/registerSellerProductScreen.dart';
 import 'package:urbex_pro/screens/register/registerServiceProviderScreen.dart';
@@ -328,6 +329,18 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     );
                   },
                   child: Text('Register moover Screen')
+              ),
+               TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PropertyDetailScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Property detail')
               ),
               TextButton(
                   onPressed: () {
