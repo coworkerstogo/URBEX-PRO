@@ -268,7 +268,7 @@ class RegisterMooverStep4 extends StatelessWidget {
 
             CustomDropdownField(
               items: ['Maritime', 'Savane', 'Kara', 'Plateaux', 'Centrale'],
-              hint: "ville de couvertes",
+              hint: "villes couvertes",
               selectedItem: selectedItem,
             ),
 
@@ -584,7 +584,7 @@ class StepperComponent extends StatelessWidget {
 
     return Expanded(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             children: [
@@ -621,13 +621,7 @@ class StepperComponent extends StatelessWidget {
                   color: isCompleted ? AppColors.btnPrimary : Colors.grey,
                 ),
               ),
-              if (!isLast)
-                Expanded(
-                  child: Container(
-                    height: 2,
-                    color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                  ),
-                ),
+
             ],
           ),
           Padding(
@@ -637,7 +631,7 @@ class StepperComponent extends StatelessWidget {
               style: TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 9,
-                fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w500,
+                fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w400,
               ),
              // textAlign: TextAlign.center,
             ),

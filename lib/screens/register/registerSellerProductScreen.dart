@@ -92,9 +92,6 @@ class _RegisterSellerProductScreen extends State<RegisterSellerProductScreen> {
                   stepsDesc: [
                     "Informations\nPersonnelles",
                     "Informations\nde vérification",
-                    "Informations\nde connexion",
-                    "Informations\nsur services",
-                    "Conditions\n et politiques",
                   ],
                 ),
               ),
@@ -196,7 +193,7 @@ class RegisterSellerProductScreenStep2 extends StatelessWidget{
 
           CustomFormField(
             prefixicon: Icons.key_outlined,
-            label: "Confirmation de mot de passe",
+            label: "Confirmer le mot de passe",
             controller: _controller,
           ),
 
@@ -240,15 +237,6 @@ class RegisterSellerProductScreenStep1 extends StatelessWidget {
                 label: "Prénom",
                 controller: _controller
             ),
-
-            SizedBox(height: 19,),
-
-            CustomFormField(
-                prefixicon: Icons.real_estate_agent_outlined,
-                label: "Nom de l'agence",
-                controller: _controller
-            ),
-
             SizedBox(height: 19,),
 
             CustomCountryFormField(),
@@ -261,11 +249,20 @@ class RegisterSellerProductScreenStep1 extends StatelessWidget {
                 controller: _controller
             ),
 
+
             SizedBox(height: 19,),
 
             CustomFormField(
-                prefixicon: Icons.location_on_outlined,
-                label: "Adresse",
+                prefixicon: Icons.real_estate_agent_outlined,
+                label: "Nom de votre entreprise",
+                controller: _controller
+            ),
+
+            SizedBox(height: 19,),
+
+            CustomFormField(
+                prefixicon: Icons.tag_outlined,
+                label: "NIF de l'agence",
                 controller: _controller
             ),
 
@@ -363,10 +360,16 @@ class StepperComponent extends StatelessWidget {
 
     return Expanded(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             children: [
+              Expanded(
+                child: Container(
+                  height: 2,
+                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
+                ),
+              ),
               Expanded(
                 child: Container(
                   height: 2,
@@ -400,13 +403,12 @@ class StepperComponent extends StatelessWidget {
                   color: isCompleted ? AppColors.btnPrimary : Colors.grey,
                 ),
               ),
-              if (!isLast)
-                Expanded(
-                  child: Container(
-                    height: 2,
-                    color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                  ),
+              Expanded(
+                child: Container(
+                  height: 2,
+                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
                 ),
+              ),
             ],
           ),
           Padding(
@@ -416,7 +418,7 @@ class StepperComponent extends StatelessWidget {
               style: TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 9,
-                fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w500,
+                fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w400,
               ),
               // textAlign: TextAlign.center,
             ),
