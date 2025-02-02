@@ -25,6 +25,8 @@ class CustomCountryFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: CountryCodeTextField(
+        searchText: 'Rechercher',
+        bottomSheetTitle :'Selectionner un Pays',
         // controller: controller, // Ajout du contrôleur ici
         decoration: InputDecoration(
           filled: true,

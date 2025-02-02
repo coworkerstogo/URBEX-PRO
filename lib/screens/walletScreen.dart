@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customAppBar.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
-import 'package:urbex_pro/screens/addCardScreen.dart';
 import 'package:urbex_pro/screens/withdrawalScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 

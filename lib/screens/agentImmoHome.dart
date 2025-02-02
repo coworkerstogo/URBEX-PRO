@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customButton.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
 import 'package:urbex_pro/screens/accountValidateScreen.dart';
+import 'package:urbex_pro/screens/addHouseStep1.dart';
 import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/missionHome.dart';
 import 'package:urbex_pro/screens/onboardingScreen.dart';
@@ -142,6 +143,12 @@ class AgentImmoHomeScreen extends StatelessWidget {
                 bordersideColor: AppColors.btnPrimary,
                 onPressed: () {
                   // Logique pour le bouton de soumission
+                  Navigator.push(
+                    context,
+                      MaterialPageRoute(
+                        builder: (context) => AddHouseStep1(),
+                      ),
+                    );
                   print('Email: ');
                 },
               ),
