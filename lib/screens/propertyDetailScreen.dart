@@ -6,12 +6,21 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:urbex_pro/components/customButton.dart';
 import 'package:urbex_pro/components/customFormField.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
+import 'package:urbex_pro/widgets/messageCardWidget.dart';
 
 
 
 
 class PropertyDetailScreen extends StatelessWidget {
     final TextEditingController _controller = TextEditingController();
+
+  final List<Map<String, String>> messages = [
+    {'name': 'Naruto uzumaki', 'message': 'Lorem Ipsum is not simply random text', 'time': '12:43', 'avatar': 'https://i.pinimg.com/736x/1a/20/e9/1a20e9e0bcff6ec585acaea95fda033c.jpg'},
+    {'name': 'Avatar bleu', 'message': 'Lorem Ipsum is not simply random text', 'time': '12:43', 'avatar': 'https://i.pinimg.com/736x/c9/ec/19/c9ec19bdd57f588822bbc64065c919b6.jpg'},
+    {'name': 'Julio Teko', 'message': 'Lorem Ipsum is not simply random text', 'time': '12:43', 'avatar': 'https://i.pinimg.com/736x/52/30/3f/52303f48fe87c9c95d7b1946f7ba9411.jpg'},
+    {'name': 'Julio Teko', 'message': 'Lorem Ipsum is not simply random text', 'time': '12:43', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
+    // Ajoutez plus d'éléments ici
+  ];
 
    PropertyDetailScreen({Key? key}) : super(key: key);
 
@@ -246,46 +255,23 @@ class PropertyDetailScreen extends StatelessWidget {
               tabHeight: 45,
               views: [
                 Container(
-                  padding: const EdgeInsets.all(20),
                   color: Colors.purple.withOpacity(0.09),
-                  child: Column(
-                    children: [
-                 
-                      SizedBox(height: 15),
-                      
-                      CustomFormField(
-                        prefixicon: Icons.sms_outlined,
-                        keyboardType: TextInputType.multiline,
-                        formheight: 55,
-                        label: 'Email', controller: _controller
-                        ),
-                      SizedBox(height: 15),
-                    
-                      CustomFormField(
-                        prefixicon: Icons.sms_outlined,
-                        keyboardType: TextInputType.multiline,
-                        formheight: 105,
-                        label: 'Message', controller: _controller
-                        ),
+                  child: ListView.builder(
+                    itemCount: messages.length,
+                    itemBuilder: (context, index) {
+                      final message = messages[index];
+                      return MessageCardWidget(
+                        avatar: message['avatar']!,
+                        title: message['name']!,
+                        subtitle: message['message']!,
+                        time : message['time']!,
+                        smsnomber: '1',
+                        cardOnTap: () {
 
-                      SizedBox(height: 25),
-              
-                        CustomButton(
-                        btnText: 'Demander à Visiter', 
-                        onPressed:  (){}, 
-                        lendingWidget: Icon(Icons.phone), 
-                        trailingWidget: Icon(Icons.phone)
-                        ),
-                      SizedBox(height: 8),
-                      const Text(
-                        'Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur. '
-                            'Mattis ultricies pellentesque aliquam malesuada auctor urna egestas. Porta '
-                            'proin arcu ut placerat netus nisl purus. Condimentum in tincidunt ultrices '
-                            'nisi ut ut nulla feugiat eget. Non neque tortor ultrices adipiscing vitae '
-                            'elementum luctus sit. Arcu arcu enim volutpat blandit adipiscing. Viverra ut nisl faucibus ut vitae.',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
+                        },
+
+                      );
+                    },
                   ),
                 ),
                 Container(

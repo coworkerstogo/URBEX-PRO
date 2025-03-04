@@ -151,6 +151,7 @@ class AddHouseStep1 extends StatelessWidget {
                   selectedItem: selectedItem,
                 ),
                 CustomFormField(
+                  formheight: 80,
                   title: 'Géolocalisation',
                   suffixicon: Icons.location_on_outlined,
                   label: 'Avéto, Bè',
@@ -188,6 +189,7 @@ class AddHouseStep1 extends StatelessWidget {
                 ),
                 SizedBox(height: 19,),
                 CustomFormField(
+                  formheight: 80,
                   title: 'Taille en m²',
                   label: '200',
                   controller: TextEditingController(),
@@ -196,6 +198,7 @@ class AddHouseStep1 extends StatelessWidget {
                 SizedBox(
                   //height: 150,
                   child: CustomFormField(
+                    formheight: 80,
                     title: 'Description',
                     label: 'Description',
                     controller: TextEditingController(),
@@ -203,6 +206,7 @@ class AddHouseStep1 extends StatelessWidget {
                 ),
                 SizedBox(height: 24,),
                 CustomFormField(
+                  formheight: 80,
                   title: 'Titre',
                   label: 'Le titre à afficher sur votre bien',
                   controller: TextEditingController(),
@@ -234,10 +238,10 @@ class AddHouseStep1 extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 60,),
+                SizedBox(height: 30,),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.only(bottom: 16,left: 16,right: 16),
                   child: CustomButton(
                     height: 60,
                     width: 354,

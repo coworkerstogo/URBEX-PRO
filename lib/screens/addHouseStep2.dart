@@ -36,6 +36,7 @@ class AddHouseStep2 extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: CustomFormField(
+                  formheight: 80,
                   title: 'Montant du loyer (Fcfa)',
                   label: "35.000 ",
                   controller: _controller,
@@ -57,18 +58,21 @@ class AddHouseStep2 extends StatelessWidget {
           SizedBox(height: 19,),
 
           CustomFormField(
+            formheight: 80,
             title: 'Caution (Fcfa)',
             label: '35.000',
             controller: TextEditingController(),
           ),
           SizedBox(height: 19,),
           CustomFormField(
+            formheight: 80,
             title: 'Frais de visite (Fcfa)',
             label: '35.000',
             controller: TextEditingController(),
           ),
           SizedBox(height: 19,),
           CustomFormField(
+            formheight: 80,
             title:'Frais suppléméntaire (Fcfa)' ,
             label: '35.000',
             controller: TextEditingController(),

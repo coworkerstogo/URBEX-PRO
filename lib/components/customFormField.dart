@@ -33,24 +33,32 @@ class CustomFormField extends StatelessWidget {
       padding: formpadding ?? const EdgeInsets.symmetric( horizontal: 19), // Ajoutez un margin horizontal de 19px pour correspondre à la largeur du bouton
       child: Container(
         height: formheight ?? 54,
-        width: formwidth ?? MediaQuery.of(context).size.width, // Largeur de l'écran moins la marge de chaque côté
-        child: TextFormField(
-          controller: controller,
-          keyboardType: keyboardType,
-          validator: validator,
-          decoration: InputDecoration(
-            prefixIcon: Icon(prefixicon, color: AppColors.formiconcolor),
-            suffixIcon: Icon(suffixicon, color: AppColors.formiconcolor),// Icône à gauche
-            hintText: label,
-            filled: true,
-            fillColor: AppColors.fildbackcolor,// Texte du label
-            labelStyle: TextStyle(color: AppColors.formiconcolor), // Couleur du label
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16), // Rayon du champ
-              borderSide: BorderSide(color: AppColors.btnPrimary), // Couleur du bord
+        width: formwidth ?? MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title!,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+            SizedBox(height: 5,),
+            TextFormField(
+              controller: controller,
+              keyboardType: keyboardType,
+              validator: validator,
+              decoration: InputDecoration(
+                prefixIcon: Icon(prefixicon, color: AppColors.formiconcolor),
+                suffixIcon: Icon(suffixicon, color: AppColors.formiconcolor),// Icône à gauche
+                hintText: label,
+                filled: true,
+                fillColor: AppColors.fildbackcolor,// Texte du label
+                labelStyle: TextStyle(color: AppColors.formiconcolor), // Couleur du label
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16), // Rayon du champ
+                  borderSide: BorderSide(color: AppColors.btnPrimary), // Couleur du bord
+                ),
+                contentPadding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 20.0), // Ajuste la hauteur
+              ),
             ),
-            contentPadding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 20.0), // Ajuste la hauteur
-          ),
+          ],
         ),
       ),
     );

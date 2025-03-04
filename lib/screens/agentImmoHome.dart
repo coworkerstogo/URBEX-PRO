@@ -5,6 +5,7 @@ import 'package:urbex_pro/screens/accountValidateScreen.dart';
 import 'package:urbex_pro/screens/addHouseStep1.dart';
 import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/missionHome.dart';
+import 'package:urbex_pro/screens/notificationScreen.dart';
 import 'package:urbex_pro/screens/onboardingScreen.dart';
 import 'package:urbex_pro/screens/propertyDetailScreen.dart';
 import 'package:urbex_pro/screens/register/registerMooverScreen.dart';
@@ -74,6 +75,14 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     ),
                     shadowColor: Colors.transparent,
                     radius: BorderRadius.circular(8),
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NotificationScreen(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

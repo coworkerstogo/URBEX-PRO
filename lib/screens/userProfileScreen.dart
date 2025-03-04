@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:urbex_pro/screens/ListeDeMesBiens.dart';
 import 'package:urbex_pro/screens/register/registerAgentScreen.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
 import 'package:urbex_pro/screens/addHouseStep1.dart';
@@ -99,7 +100,7 @@ class UserProfileScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AddHouseStep1(),
+                          builder: (context) => ListeDeMesBiensScreen(),
                         ),
                       );
                     },
