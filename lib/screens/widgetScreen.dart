@@ -98,16 +98,21 @@ class WidgetScreen extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    smallIconBtn(btnicon:  Icon(Icons.house_outlined)),
+                    smallIconBtn(
+                        bottomTitle: SizedBox(),
+                        btnicon:  Icon(Icons.house_outlined)
+                    ),
                     SizedBox(width: 20,),
                     smallIconBtn(
-                          btncolor: const Color(0xFF171532).withOpacity(0.2),
+                      bottomTitle: SizedBox(),
+                      btncolor: const Color(0xFF171532).withOpacity(0.2),
                           btnicon:  Icon(Icons.house_outlined,),
                           shadowColor: Colors.transparent,
                           radius: BorderRadius.circular(8),
                     ),
                     SizedBox(width: 20,),
                     smallIconBtn(
+                      bottomTitle: SizedBox(),
                       width: 94,
                       height:76 ,
                       border: Border.all(color: AppColors.btnPrimary, width: 2),

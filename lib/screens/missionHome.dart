@@ -64,6 +64,7 @@ class MissionHomeScreen extends StatelessWidget {
                     ],
                   ),
                   smallIconBtn(
+                    bottomTitle: SizedBox(),
                     btncolor: AppColors.btnPrimary.withOpacity(0.1),
                     btnicon: Icon(
                       Icons.notifications_active_outlined,
@@ -204,6 +205,7 @@ class MissionHomeScreen extends StatelessWidget {
                   itemBuilder: (context, index) {// Alternate between payment and withdrawal
                     return ListTile(
                       leading: smallIconBtn(
+                        bottomTitle: SizedBox(),
                         btncolor: Colors.green,
                         btnicon: Icon( Icons.car_repair_outlined,
                           color: Colors.white,

@@ -121,17 +121,20 @@ class AddPayementMethodeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 30),
+
           CustomDropdownField(
             items: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
             hint: "Togo",
             selectedItem: selectedItem,
           ),
-          //CustomCountryFormField(),
+
           SizedBox(height: 10),
+
           Text(
             "Modes de paiement disponibles",
             style: TextStyle(fontWeight: FontWeight.w400),
           ),
+
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -147,6 +150,7 @@ class AddPayementMethodeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 23),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
             child: CustomButton(
@@ -159,7 +163,9 @@ class AddPayementMethodeScreen extends StatelessWidget {
               onPressed: () => _showMobileMoneyPopup(context),
             ),
           ),
+
           SizedBox(height: 23),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
             child: CustomButton(
@@ -172,6 +178,7 @@ class AddPayementMethodeScreen extends StatelessWidget {
               onPressed: () => _showCardPaymentPopup(context),
             ),
           ),
+
           SizedBox(height: 23),
         ],
       ),

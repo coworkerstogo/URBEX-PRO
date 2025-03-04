@@ -111,12 +111,14 @@ class OtpCodeScreen extends StatelessWidget {
                           label: '', 
                           controller: _controller
                         ),
+
                         CustomFormField(
                           formpadding: EdgeInsets.only( right: 19),                          
                           formwidth: 56,
                           label: '', 
                           controller: _controller
                         ),
+
                          CustomFormField(
                           formpadding: EdgeInsets.only( right: 19),
                           formwidth: 56,

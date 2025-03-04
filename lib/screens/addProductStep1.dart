@@ -14,6 +14,7 @@ class AddProductStep1 extends StatelessWidget {
    AddProductStep1({super.key});
 
   final List<Map<String, dynamic>> categoriesBien = [
+
     {"icon": Icons.house_outlined, "label": "Maison"},
     {"icon": Icons.business_outlined, "label": "Bureau"},
     {"icon": Icons.warehouse_outlined, "label": "Boutique"},
