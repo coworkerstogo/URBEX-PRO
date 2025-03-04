@@ -304,7 +304,9 @@ class PropertyDetailScreen extends StatelessWidget {
                             ),
 
                           ),
+
                           SizedBox(width: 16),
+
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

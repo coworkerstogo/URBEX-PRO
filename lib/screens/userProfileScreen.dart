@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:urbex_pro/screens/addHouse.dart';
 import 'package:urbex_pro/screens/register/registerAgentScreen.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
-import 'package:urbex_pro/screens/addHouseStep1.dart';
 import 'package:urbex_pro/screens/settingScreen.dart';
 import 'package:urbex_pro/screens/updatePasswordScreen.dart';
 import 'package:urbex_pro/screens/updateProfileScreen.dart';
@@ -99,7 +99,7 @@ class UserProfileScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AddHouseStep1(),
+                          builder: (context) => AddHouse(),
                         ),
                       );
                     },
@@ -146,7 +146,7 @@ class UserProfileScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CustomTimelineList(),
+                        builder: (context) => RegisterAgentScreen(),
                       ),
                     );
                   },
@@ -179,6 +179,7 @@ class ProfileOptionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: smallIconBtn(
+        bottomTitle: SizedBox(),
         btnicon: Icon(
           iconPath,
           size: 24,

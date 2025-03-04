@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:urbex_pro/components/customDropDown.dart';
+import 'package:urbex_pro/components/customTimeline.dart';
 import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/successScreen.dart';
 import '../../components/customButton.dart';
@@ -9,12 +11,12 @@ import '../../components/customAppBar.dart';
 
 
 
-class CustomTimelineList extends StatefulWidget {
+class RegisterAgentScreen extends StatefulWidget {
   @override
-  State<CustomTimelineList> createState() => _CustomTimelineListState();
+  State<RegisterAgentScreen> createState() => _RegisterAgentScreenState();
 }
 
-class _CustomTimelineListState extends State<CustomTimelineList> {
+class _RegisterAgentScreenState extends State<RegisterAgentScreen> {
   int _currentIndex = 0;
   PageController _pageController = PageController();
 
@@ -90,12 +92,12 @@ class _CustomTimelineListState extends State<CustomTimelineList> {
             child: Row(
               children: List.generate(
                 _steps.length,
-                (index) => StepperComponent(
+                (index) => CustomTimeline(
                   index: index,
                   currentIndex: _currentIndex,
                   onTap: () => _onStepTapped(index),
                   isLast: index == _steps.length - 1,
-                  stepsDesc: [
+                  stepsDesc: const [
                     "Informations \n Personnelles",
                     "Informations \n de vérification",
                     "Informations \n de connexion",
@@ -110,6 +112,7 @@ class _CustomTimelineListState extends State<CustomTimelineList> {
           // PAGEVIEW
           Expanded(
             child: PageView.builder(
+              physics: NeverScrollableScrollPhysics(),
               controller: _pageController,
               itemCount: _steps.length,
               onPageChanged: (index) {
@@ -179,10 +182,9 @@ class ConditionsPolitiquesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: AppColors.surface,
-
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -313,20 +315,90 @@ class ConditionsPolitiquesScreen extends StatelessWidget {
 
 class RegisterAgentStep4 extends StatelessWidget {
   final VoidCallback onNext;
+  final ValueNotifier<String?> selectedItem = ValueNotifier<String?>(null);
+  final ValueNotifier<List<String>> selectedTopicsNotifier = ValueNotifier([]);
+  final List<String> topics = [
+    'Chambre', 'Maison', 'Bureau', 'Cuisine',
+    'Boutique', 'Villa', 'Appart Meublé',
+    'Salle d\'évènement', 'Hôtel'
+  ];
   RegisterAgentStep4({super.key, required this.onNext});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.surface,
+      body:  SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(height: 27,),
+            Container(
+              margin: EdgeInsets.only(left: 14),
+              width: MediaQuery.of(context).size.width,
+                child: const Text(
+                    "Type de biens immobiliers que vous proposez"
+                )
+            ),
+            const SizedBox(height: 19,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: ValueListenableBuilder<List<String>>(
+                  valueListenable: selectedTopicsNotifier,
+                  builder: (context, selectedTopics, child) {
+                    return Wrap(
+                      children: topics.map((e) {
+                        bool isSelected = selectedTopics.contains(e);
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              List<String> updatedList = List.from(selectedTopicsNotifier.value);
+                              if (updatedList.contains(e)) {
+                                updatedList.remove(e);
+                              } else {
+                                updatedList.add(e);
+                              }
+                              selectedTopicsNotifier.value = updatedList; // Assigner la nouvelle liste
+                              print(updatedList);
+                            },
+                            child: Chip(
+                              label: Text(e, style: TextStyle(
+                                color: isSelected ? AppColors.surface : AppColors.textPrimary,
+                              ),),
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                              ),
+                              backgroundColor: isSelected ? AppColors.btnPrimary : AppColors.formcolor,
+                              color: isSelected
+                                  ? const WidgetStatePropertyAll(AppColors.btnPrimary)
+                                  : WidgetStatePropertyAll(AppColors.formcolor) ,
+                              side: isSelected
+                                  ? BorderSide(color: AppColors.btnPrimary)
+                                  : BorderSide(color: AppColors.formcolor),
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    );
+                  }),
+            ),
 
-      body:  Column(
-        children: [
-
-          SizedBox(height: 30,),
-          Text("Step 4")
-
-        ],
+           // SizedBox(height: 25,),
+            const Divider(
+              height: 25,
+              indent: 14,
+              endIndent: 14,
+              thickness: 1,
+              color: AppColors.textPrimary,
+            ),
+            CustomDropdownField(
+                items: ["Lomé", "Tsévié", "Tabligbo"],
+                hint: "Régions Couvertes",
+                selectedItem: selectedItem
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -341,41 +413,43 @@ class RegisterAgentStep3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: AppColors.surface,
-      body: Column(
-        children: [
-          SizedBox(height: 34,),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(height: 34,),
 
-          CustomFormField(
-              prefixicon: Icons.person_outlined,
-              label: "Nom d'utilisateur",
-              controller: _controller
-          ),
-
-          SizedBox(height: 19,),
-
-          CustomFormField(
-              prefixicon: Icons.key_outlined,
-              label: "Mot de passe",
-              controller: _controller
-          ),
-
-        /*  Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: CustomButton(
-              height: 60,
-              width: 354,
-              fontsize: 18,
-              btnText: "Suivant",
-              onPressed: onNext,
-              lendingWidget: SizedBox(),
-              trailingWidget: const SizedBox(),
-              textColor: Colors.white,
-              btncolor: AppColors.btnPrimary,
+            CustomFormField(
+                prefixicon: Icons.person_outlined,
+                label: "Nom d'utilisateur",
+                controller: _controller
             ),
-          ), */
-        ],
+
+            SizedBox(height: 19,),
+
+            CustomFormField(
+                prefixicon: Icons.key_outlined,
+                label: "Mot de passe",
+                controller: _controller
+            ),
+
+          /*  Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: CustomButton(
+                height: 60,
+                width: 354,
+                fontsize: 18,
+                btnText: "Suivant",
+                onPressed: onNext,
+                lendingWidget: SizedBox(),
+                trailingWidget: const SizedBox(),
+                textColor: Colors.white,
+                btncolor: AppColors.btnPrimary,
+              ),
+            ), */
+          ],
+        ),
       ),
     );
   }
@@ -391,60 +465,62 @@ class RegisterAgentStep2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: AppColors.surface,
-      body: Column(
-        children: [
-          SizedBox(height: 34,),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(height: 34,),
 
-          Padding(
-            padding: const EdgeInsets.all(19.0),
-            child: SizedBox(
-              height: 140,
-              width: 380,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: AppColors.textSecondary)
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
-                  child: CustomButton(
-                      btnText: "Importer vos pièces d’identité",
-                      btncolor: AppColors.surface,
-                      bordersideColor: AppColors.btnPrimary,
-                      onPressed: () {
-                        // Logique pour le bouton de soumission
-                        print('Email: ');
-                      },
-                      lendingWidget: Icon(
-                        Icons.add,
-                        color: AppColors.textSecondary,
-                      ),
-                      textColor: AppColors.textSecondary,
-                      trailingWidget: SizedBox()
+            Padding(
+              padding: const EdgeInsets.all(19.0),
+              child: SizedBox(
+                height: 140,
+                width: 380,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: AppColors.textSecondary)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
+                    child: CustomButton(
+                        btnText: "Importer vos pièces d’identité",
+                        btncolor: AppColors.surface,
+                        bordersideColor: AppColors.btnPrimary,
+                        onPressed: () {
+                          // Logique pour le bouton de soumission
+                          print('Email: ');
+                        },
+                        lendingWidget: Icon(
+                          Icons.add,
+                          color: AppColors.textSecondary,
+                        ),
+                        textColor: AppColors.textSecondary,
+                        trailingWidget: SizedBox()
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
 
-          SizedBox(height: 12,),
+            SizedBox(height: 12,),
 
-          CustomFormField(
-              prefixicon: Icons.tag_outlined,
-              label: "Numéro de Licence",
-              controller: _controller
-          ),
+            CustomFormField(
+                prefixicon: Icons.tag_outlined,
+                label: "Numéro de Licence",
+                controller: _controller
+            ),
 
-          SizedBox(height: 19,),
+            SizedBox(height: 19,),
 
-          CustomFormField(
-              prefixicon: Icons.tag_outlined,
-              label: "NIF de l'agence",
-              controller: _controller
-          ),
-        ],
+            CustomFormField(
+                prefixicon: Icons.tag_outlined,
+                label: "NIF de l'agence",
+                controller: _controller
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -461,8 +537,8 @@ class RegisterAgentStep1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.surface,
-
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
 
@@ -578,91 +654,3 @@ class RegisterAgentStep1 extends StatelessWidget {
 }
 
 
-
-
-class StepperComponent extends StatelessWidget {
-  final int index;
-  final int currentIndex;
-  final VoidCallback onTap;
-  final bool isLast;
-  final List<String> stepsDesc;
-
-  StepperComponent({
-    super.key,
-    required this.index,
-    required this.currentIndex,
-    required this.onTap,
-    this.isLast = false,
-    required this.stepsDesc,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    bool isActive = index == currentIndex;
-    bool isCompleted = index < currentIndex;
-
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  height: 2,
-                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                ),
-              ),
-              GestureDetector(
-                onTap: onTap,
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: isActive ? AppColors.btnPrimary : AppColors.formiconcolor,
-                  ),
-                  child: isCompleted
-                      ? Icon(Icons.check, color: Colors.white, size: 16)
-                      : Text(
-                    '${index + 1}',
-                    style: TextStyle(
-                      color: AppColors.surface,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  height: 2,
-                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                ),
-              ),
-              if (!isLast)
-                Expanded(
-                  child: Container(
-                    height: 2,
-                    color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                  ),
-                ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8, left: 5, ),
-            child: Text(
-                stepsDesc[index],
-                style: TextStyle(
-                  color: AppColors.textSecondary,
-                  fontSize: 9,
-                  fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w400,
-                ),
-                textAlign: TextAlign.center,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

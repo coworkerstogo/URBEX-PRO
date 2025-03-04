@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../components/customAppBar.dart';
 import '../../components/customButton.dart';
 import '../../components/customCuntryFormField.dart';
-import '../../components/customDropDown.dart';
 import '../../components/customFormField.dart';
+import '../../components/customTimeline.dart';
+import '../../components/smallIconBtn.dart';
 import '../../theme/app_colors.dart';
 import '../loginScreen.dart';
 import '../successScreen.dart';
@@ -31,6 +33,7 @@ class _RegisterServiceProviderScreenState extends State<RegisterServiceProviderS
     }
   }
 
+  //Fonction à aller à l'étape précédente
   void _onPrevious(){
     if(_currentIndex < _steps.length ){
       setState(() {
@@ -39,6 +42,8 @@ class _RegisterServiceProviderScreenState extends State<RegisterServiceProviderS
       _pageController.jumpToPage(_currentIndex);
     }
   }
+
+  //Fonction permettant d'accéder à l'étape suivante quand on clique sur l'étape suivante
   void _onStepTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -46,13 +51,15 @@ class _RegisterServiceProviderScreenState extends State<RegisterServiceProviderS
     _pageController.jumpToPage(index);
   }
 
-  // Liste des étapes avec onNext en paramètre
+
+
   final List<Widget> _steps = [];
 
-  final List<String> _stepsDesc = [];
+  //Initialisation de la liste des descriptions de chaque étape avec un tableau vide
 
 
   @override
+  //Ajout des widgets au tableau list<widget>
   void initState() {
     super.initState();
     _steps.addAll([
@@ -85,12 +92,12 @@ class _RegisterServiceProviderScreenState extends State<RegisterServiceProviderS
               child: Row(
                 children: List.generate(
                   _steps.length,
-                      (index) => StepperComponent(
+                      (index) => CustomTimeline(
                     index: index,
                     currentIndex: _currentIndex,
                     onTap: () => _onStepTapped(index),
                     isLast: index == _steps.length - 1,
-                    stepsDesc: [
+                     stepsDesc: const [
                       "Informations\nPersonnelles",
                       "Informations\nde l'entreprise",
                       "Informations\nde connexion",
@@ -103,6 +110,7 @@ class _RegisterServiceProviderScreenState extends State<RegisterServiceProviderS
             // PAGEVIEW
             Expanded(
               child: PageView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 controller: _pageController,
                 itemCount: _steps.length,
                 onPageChanged: (index) {
@@ -157,7 +165,7 @@ class _RegisterServiceProviderScreenState extends State<RegisterServiceProviderS
               ),
             ),
 
-            SizedBox(height: 10,)
+            const SizedBox(height: 10,)
           ],
         ),
       );
@@ -215,8 +223,37 @@ class RegisterServiceProviderScreenStep2 extends StatelessWidget {
   final ValueNotifier<String?> selectedItem = ValueNotifier<String?>(null);
   final VoidCallback onNext;
   final TextEditingController _controller = TextEditingController();
+
   RegisterServiceProviderScreenStep2({super.key, required this.onNext});
 
+
+  List<Widget> listService = [
+    Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: smallIconBtn(width: 94,height: 76,bottomTitleSpace: 10,btnicon: SvgPicture.asset("assets/pictures/brick.svg"), bottomTitle: Text("Maçons")),
+    ),
+    Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: smallIconBtn(width: 94,height: 76,bottomTitleSpace: 10,btnicon: SvgPicture.asset("assets/pictures/carpentry.svg"), bottomTitle: Text("Ménuiserie")),
+    ),
+    Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: smallIconBtn(width: 94,height: 76,bottomTitleSpace: 10,btnicon: SvgPicture.asset("assets/pictures/bulb.svg"), bottomTitle: Text("Electriciens")),
+    ),
+    Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: smallIconBtn(width: 94,height: 76,bottomTitleSpace: 10,btnicon: SvgPicture.asset("assets/pictures/bulb.svg"), bottomTitle: Text("Peintres")),
+    ),
+    Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: smallIconBtn(width: 94,height: 76,bottomTitleSpace: 10,btnicon: SvgPicture.asset("assets/pictures/bulb.svg"), bottomTitle: Text("Plombiers")),
+    ),
+    Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: smallIconBtn(width: 94,height: 76,bottomTitleSpace: 10,btnicon: SvgPicture.asset("assets/pictures/bulb.svg"), bottomTitle: Text("Jardiniers")),
+    ),
+
+  ];
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -225,7 +262,7 @@ class RegisterServiceProviderScreenStep2 extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 34,),
+            const SizedBox(height: 34,),
 
             CustomFormField(
                 prefixicon: Icons.real_estate_agent_outlined,
@@ -233,7 +270,7 @@ class RegisterServiceProviderScreenStep2 extends StatelessWidget {
                 controller: _controller
             ),
 
-            SizedBox(height: 19,),
+            const SizedBox(height: 19,),
 
             CustomFormField(
                 prefixicon: Icons.tag_outlined,
@@ -241,34 +278,32 @@ class RegisterServiceProviderScreenStep2 extends StatelessWidget {
                 controller: _controller
             ),
 
-            SizedBox(height: 19,),
+            const SizedBox(height: 19,),
 
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+             // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                const Padding(
                   padding: const EdgeInsets.only(left: 19.0),
                   child: Text(
                       "Choisissez le service que vous proposer",
                   ),
                 ),
-                SizedBox(height: 19,),
-                
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                        "Il reste un élément à mettre",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600
-                      ),
-                    )
-                  ],
-                )
+                const SizedBox(height: 19,),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 120,
+                  padding: const EdgeInsets.only(left: 19.0),
+                  child:  ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: listService,
+                  ),
+                ),
+
               ],
             ),
 
+          //  SizedBox(height: 70,),
             Padding(
               padding: const EdgeInsets.only(top: 19, left: 19, right: 19),
               child: SizedBox(
@@ -319,6 +354,8 @@ class RegisterServiceProviderScreenStep1 extends StatelessWidget {
       backgroundColor: AppColors.surface,
 
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
 
@@ -428,85 +465,3 @@ class RegisterServiceProviderScreenStep1 extends StatelessWidget {
     );
   }}
 
-
-
-class StepperComponent extends StatelessWidget {
-  final int index;
-  final int currentIndex;
-  final VoidCallback onTap;
-  final bool isLast;
-  final List<String> stepsDesc;
-
-  StepperComponent({
-    super.key,
-    required this.index,
-    required this.currentIndex,
-    required this.onTap,
-    this.isLast = false,
-    required this.stepsDesc,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    bool isActive = index == currentIndex;
-    bool isCompleted = index < currentIndex;
-
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  height: 2,
-                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                ),
-              ),
-              GestureDetector(
-                onTap: onTap,
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: isActive ? AppColors.btnPrimary : AppColors.formiconcolor,
-                  ),
-                  child: isCompleted
-                      ? Icon(Icons.check, color: Colors.white, size: 16)
-                      : Text(
-                    '${index + 1}',
-                    style: TextStyle(
-                      color: AppColors.surface,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  height: 2,
-                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                ),
-              ),
-
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8,),
-            child: Text(
-              stepsDesc[index],
-              style: TextStyle(
-                color: AppColors.textSecondary,
-                fontSize: 9,
-                fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w400,
-              ),
-              // textAlign: TextAlign.center,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

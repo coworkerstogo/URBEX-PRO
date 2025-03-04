@@ -37,7 +37,8 @@ class RecapAgendaScreen extends StatelessWidget {
                         offset: Offset(0, 3),
                       ),
                     ],
-                    width: 163,
+                    //width: 163,
+                    width: MediaQuery.of(context).size.width / 2,
                     containerColor: Colors.white,
                     height: 111,
                     containerChild: Padding(
@@ -88,7 +89,8 @@ class RecapAgendaScreen extends StatelessWidget {
                         offset: Offset(0, 3),
                       ),
                     ],
-                    width: 163,
+                   // width: 163,
+                    width: MediaQuery.of(context).size.width / 2,
                     containerColor: Colors.white,
                     height: 111,
                     containerChild: Padding(
@@ -133,7 +135,8 @@ class RecapAgendaScreen extends StatelessWidget {
                         offset: Offset(0, 3),
                       ),
                     ],
-                    width: 163,
+                   // width: 163,
+                    width: MediaQuery.of(context).size.width / 2,
                     containerColor:Colors.white,
                     height: 111,
                     containerChild: Padding(
@@ -177,7 +180,8 @@ class RecapAgendaScreen extends StatelessWidget {
                         offset: Offset(0, 3),
                       ),
                     ],
-                    width: 163,
+                   // width: 163,
+                    width: MediaQuery.of(context).size.width / 2,
                     containerColor: Colors.white,
                     height: 111,
                     containerChild: Padding(

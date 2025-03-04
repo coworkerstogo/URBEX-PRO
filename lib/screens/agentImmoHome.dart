@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customButton.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
 import 'package:urbex_pro/screens/accountValidateScreen.dart';
-import 'package:urbex_pro/screens/addHouseStep1.dart';
+import 'package:urbex_pro/screens/addHouse.dart';
+import 'package:urbex_pro/screens/chatScreen.dart';
 import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/missionHome.dart';
 import 'package:urbex_pro/screens/onboardingScreen.dart';
@@ -14,7 +15,6 @@ import 'package:urbex_pro/screens/waitingScreen.dart';
 import 'package:urbex_pro/screens/widgetScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 import 'package:urbex_pro/screens/chooseProfileScreen.dart';
-import 'package:urbex_pro/screens/agentImmoHome.dart';
 
 
 class AgentImmoHomeScreen extends StatelessWidget {
@@ -67,6 +67,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     ],
                   ),
                   smallIconBtn(
+                    bottomTitle: SizedBox(),
                     btncolor: AppColors.btnPrimary.withOpacity(0.1),
                     btnicon: Icon(
                       Icons.notifications_active_outlined,
@@ -149,7 +150,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                       MaterialPageRoute(
-                        builder: (context) => AddHouseStep1(),
+                        builder: (context) => AddHouse(),
                       ),
                     );
                   print('Email: ');
@@ -238,7 +239,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                   },
                   child: Text('agent immo home Screen')
               ),
-                TextButton(
+              TextButton(
                   onPressed: () {
                     //Navigator.pushNamed(context, routeName)
                     Navigator.push(
@@ -330,7 +331,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
                   },
                   child: Text('Register moover Screen')
               ),
-               TextButton(
+              TextButton(
                   onPressed: () {
                     //Navigator.pushNamed(context, routeName)
                     Navigator.push(
@@ -365,6 +366,18 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     );
                   },
                   child: Text('Register seller product Screen')
+              ),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChatScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('Chat')
               ),
             ],
           ),

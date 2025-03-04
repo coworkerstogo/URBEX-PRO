@@ -139,6 +139,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 21),
                   child: smallIconBtn(
+                    bottomTitle: SizedBox(),
                     btnicon: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: SvgPicture.asset(
@@ -152,6 +153,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 21),
                   child: smallIconBtn(
+                    bottomTitle: SizedBox(),
                     btnicon: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: SvgPicture.asset(
@@ -165,6 +167,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 21),
                   child: smallIconBtn(
+                    bottomTitle: SizedBox(),
                     btnicon: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: SvgPicture.asset(

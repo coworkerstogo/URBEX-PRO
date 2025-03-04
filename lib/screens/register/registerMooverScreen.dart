@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:urbex_pro/components/customTimeline.dart';
 import '../../components/customAppBar.dart';
 import '../../components/customButton.dart';
 import '../../components/customCuntryFormField.dart';
@@ -51,9 +52,6 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
   // Liste des étapes avec onNext en paramètre
   final List<Widget> _steps = [];
 
-  final List<String> _stepsDesc = [];
-
-
   @override
   void initState() {
     super.initState();
@@ -85,16 +83,16 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
         children: [
           // TIMELINE
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 5),
+            padding:const EdgeInsets.symmetric(horizontal: 5),
             child: Row(
               children: List.generate(
                 _steps.length,
-                    (index) => StepperComponent(
+                    (index) => CustomTimeline(
                   index: index,
                   currentIndex: _currentIndex,
                   onTap: () => _onStepTapped(index),
                   isLast: index == _steps.length - 1,
-                  stepsDesc: [
+                  stepsDesc: const [
                     "Informations\nPersonnelles",
                     "Informations\nde vérification",
                     "Informations\nde connexion",
@@ -109,6 +107,7 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
           // PAGEVIEW
           Expanded(
             child: PageView.builder(
+              physics: NeverScrollableScrollPhysics(),
               controller: _pageController,
               itemCount: _steps.length,
               onPageChanged: (index) {
@@ -559,85 +558,3 @@ class RegisterAgentStep1 extends StatelessWidget {
   }
 }
 
-
-
-class StepperComponent extends StatelessWidget {
-  final int index;
-  final int currentIndex;
-  final VoidCallback onTap;
-  final bool isLast;
-  final List<String> stepsDesc;
-
-  StepperComponent({
-    super.key,
-    required this.index,
-    required this.currentIndex,
-    required this.onTap,
-    this.isLast = false,
-    required this.stepsDesc,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    bool isActive = index == currentIndex;
-    bool isCompleted = index < currentIndex;
-
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  height: 2,
-                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                ),
-              ),
-              GestureDetector(
-                onTap: onTap,
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: isActive ? AppColors.btnPrimary : AppColors.formiconcolor,
-                  ),
-                  child: isCompleted
-                      ? Icon(Icons.check, color: Colors.white, size: 16)
-                      : Text(
-                    '${index + 1}',
-                    style: TextStyle(
-                      color: AppColors.surface,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  height: 2,
-                  color: isCompleted ? AppColors.btnPrimary : Colors.grey,
-                ),
-              ),
-
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8,),
-            child: Text(
-              stepsDesc[index],
-              style: TextStyle(
-                color: AppColors.textSecondary,
-                fontSize: 9,
-                fontWeight: currentIndex == index ? FontWeight.bold : FontWeight.w400,
-              ),
-             // textAlign: TextAlign.center,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

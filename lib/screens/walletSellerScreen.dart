@@ -183,6 +183,7 @@ class WalletSellerScreen extends StatelessWidget {
                               0; // Alternate between payment and withdrawal
                           return ListTile(
                             leading: smallIconBtn(
+                              bottomTitle: SizedBox(),
                               btncolor: isPayment
                                   ? Colors.green[100]
                                   : Colors.blue[100],
