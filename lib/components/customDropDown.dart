@@ -38,6 +38,7 @@ class CustomDropdownField extends StatelessWidget {
                     textAlign: TextAlign.left,
                   ),
                 ),
+              SizedBox(height: 10,),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 height: 54,

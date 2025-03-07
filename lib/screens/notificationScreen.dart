@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customAppBar.dart';
+import 'package:urbex_pro/screens/chatScreen.dart';
+import 'package:urbex_pro/screens/missionD%C3%A9tail.dart';
+import 'package:urbex_pro/screens/supportMessageDetail.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 import 'package:urbex_pro/widgets/messageCardWidget.dart';
 import 'package:urbex_pro/widgets/missionCardWidget.dart';
+import 'package:urbex_pro/widgets/supportMessageCard.dart';
 
 class NotificationScreen extends StatelessWidget {
   NotificationScreen({Key? key}) : super(key: key);
@@ -25,11 +29,19 @@ class NotificationScreen extends StatelessWidget {
       {'name': 'Julio Teko', 'message': 'Mise à jour sur votre mission', 'time': '15:12', 'avatar': 'https://i.pinimg.com/736x/52/30/3f/52303f48fe87c9c95d7b1946f7ba9411.jpg'},
     ],
     [
-      {'name': 'Kakashi Hatake', 'message': 'Mission Alpha assignée', 'time': '10:15', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
+      {'propose': '1','name': 'Kakashi Hatake', 'location': 'Sagbado adjidogomé', 'time': '10:15', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
+      {'propose': '0','name': 'Kakashi Hatake', 'location': 'Sagbado adjidogomé', 'time': '10:15', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
+      {'propose': '6','name': 'Kakashi Hatake', 'location': 'Sagbado adjidogomé', 'time': '10:15', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
     ],
-    [],
-    [],
-    [],
+    [
+      {'name': 'Kakashi Hatake', 'location': 'Sagbado adjidogomé', 'time': '10:15', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
+    ],
+    [
+      {'name': 'Kakashi Hatake', 'location': 'Sagbado adjidogomé', 'time': '10:15', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
+    ],
+    [
+      {'name': 'Kakashi Hatake', 'location': 'Sagbado adjidogomé', 'time': '10:15', 'avatar': 'https://i.pinimg.com/736x/7e/db/16/7edb16a6e1fd3b7dc3f1f58955993048.jpg'},
+    ],
     [],
   ];
 
@@ -58,16 +70,20 @@ class NotificationScreen extends StatelessWidget {
       itemCount: messagesByCategory[0].length, // Utilise la catégorie appropriée
       itemBuilder: (context, index) {
         final message = messagesByCategory[0][index];
-        return Padding(
-          padding: const EdgeInsets.only(top: 22.0),
-          child: MessageCardWidget(
-            avatar: message['avatar']!,
-            title: message['name']!,
-            subtitle: message['message']!,
-            time: message['time']!,
-            smsnomber: '1',
-            cardOnTap: () {},
-          ),
+        return MessageCardWidget(
+          avatar: message['avatar']!,
+          title: message['name']!,
+          subtitle: message['message']!,
+          time: message['time']!,
+          smsnomber: '1',
+          cardOnTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ChatScreen(),
+              ),
+            );
+          },
         );
       },
     );
@@ -84,10 +100,18 @@ class NotificationScreen extends StatelessWidget {
           child: MissionCardWidget(
             avatar: message['avatar']!,
             title: message['name']!,
-            subtitle: message['message']!,
+            subtitle: message['location']!,
             time: message['time']!,
-            smsnomber: '1',
-            cardOnTap: () {},
+            type: 'New',
+            proposenomber: message['propose']!,
+            cardOnTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MissionDetailScreen(),
+                ),
+              );
+            },
           ),
         );
       },
@@ -106,10 +130,18 @@ class NotificationScreen extends StatelessWidget {
           child: MissionCardWidget(
             avatar: message['avatar']!,
             title: message['name']!,
-            subtitle: message['message']!,
+            subtitle: message['location']!,
             time: message['time']!,
-            smsnomber: '1',
-            cardOnTap: () {},
+            type: '',
+            proposenomber: '',
+            cardOnTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MissionDetailScreen(),
+                ),
+              );
+            },
           ),
         );
       },
@@ -129,10 +161,18 @@ class NotificationScreen extends StatelessWidget {
           child: MissionCardWidget(
             avatar: message['avatar']!,
             title: message['name']!,
-            subtitle: message['message']!,
+            subtitle: message['location']!,
             time: message['time']!,
-            smsnomber: '1',
-            cardOnTap: () {},
+            type : '',
+            proposenomber : '',
+            cardOnTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MissionDetailScreen(),
+                ),
+              );
+            },
           ),
         );
       },
@@ -150,10 +190,18 @@ class NotificationScreen extends StatelessWidget {
           child: MissionCardWidget(
             avatar: message['avatar']!,
             title: message['name']!,
-            subtitle: message['message']!,
+            subtitle: message['location']!,
             time: message['time']!,
-            smsnomber: '1',
-            cardOnTap: () {},
+            type : '',
+            proposenomber : '',
+            cardOnTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MissionDetailScreen(),
+                ),
+              );
+            },
           ),
         );
       },
@@ -162,8 +210,31 @@ class NotificationScreen extends StatelessWidget {
 
   // Design spécifique pour la catégorie Support
   Widget _buildSupportCategory() {
-    return Center(
-      child: Text('Support Notifications - Customize this design!', style: TextStyle(fontSize: 18, color: AppColors.textPrimary)),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Expanded(
+              child: ListView.separated(
+                itemCount: 4,
+                separatorBuilder: (context, index) => SizedBox(height: 16),
+                itemBuilder: (context, index) {
+                  return NotificationCardWidget(
+                    messagedatetime: '29 June 2021, 7:14 PM',
+                    shortMessage: 'You received Rp 100.000 from Alexandr Gibson Jogja',
+                    signature: 'Pay debt',
+                    stateicon: index == 1  ? Icon(Icons.check_circle,color: Colors.green,) : Icon(Icons.error_outline,color: Colors.red),
+                    recordiconcolor: index == 1  ? Colors.green : Colors.red,
+                    ontapMessage: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SupportMessageDetailScreen(),
+                          ),
+                        );
+                    },
+                  );
+                },
+              ),
+          ),
     );
   }
 
@@ -215,6 +286,7 @@ class NotificationScreen extends StatelessWidget {
               },
             ),
           ),
+          SizedBox(height: 20),
           Expanded(
             child: ValueListenableBuilder<int>(
               valueListenable: selectedIndex,

@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:urbex_pro/screens/propertyDetailScreen.dart';
 import 'package:urbex_pro/screens/register/registerAgentScreen.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
-import 'package:urbex_pro/screens/addHouseStep1.dart';
 import 'package:urbex_pro/screens/settingScreen.dart';
 import 'package:urbex_pro/screens/updatePasswordScreen.dart';
 import 'package:urbex_pro/screens/updateProfileScreen.dart';

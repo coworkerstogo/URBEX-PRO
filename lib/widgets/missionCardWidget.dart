@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class MissionCardWidget extends StatelessWidget {
   final String avatar;
   final String title;
+  final String proposenomber;
   final String subtitle;
   final String time;
-  final String smsnomber;
+  final String? type;
   final Function() cardOnTap;
 
 
@@ -13,9 +14,11 @@ class MissionCardWidget extends StatelessWidget {
     required this.avatar,
     required this.title,
     required this.subtitle,
+    required this.proposenomber,
     required this.time,
-    required this.smsnomber,
-    required this.cardOnTap});
+    this.type,
+    required this.cardOnTap
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,16 +42,29 @@ class MissionCardWidget extends StatelessWidget {
         //backgroundImage: NetworkImage(message['avatar']!),
       ),
       title: Text(title),
-      subtitle: Text(subtitle),
+      subtitle: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(subtitle),
+          Text(time),
+        ],
+      ),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(time, style: TextStyle(fontSize: 12, color: Colors.grey)),
           CircleAvatar(
-            backgroundColor: Colors.red,
+            backgroundColor: proposenomber == '' ? Colors.transparent : Colors.black,
             radius: 8,
-            child: Text(smsnomber, style: TextStyle(fontSize: 12, color: Colors.white)),
+            child: Text(proposenomber, style: TextStyle(fontSize: 12, color: Colors.white)),
           ),
+          Container(
+            padding: const EdgeInsets.all(5),
+            child: Text(type!, style: TextStyle(fontSize: 12, color: Colors.white)),
+            decoration: BoxDecoration(
+              color: type == 'New' ? Colors.red : Colors.transparent ,
+            ),
+          )
         ],
       ),
     );

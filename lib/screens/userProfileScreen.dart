@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:urbex_pro/screens/ListeDeMesBiens.dart';
+import 'package:urbex_pro/screens/contactSupportScreen.dart';
+import 'package:urbex_pro/screens/referralScreen.dart';
 import 'package:urbex_pro/screens/register/registerAgentScreen.dart';
 import 'package:urbex_pro/screens/addHouse.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
@@ -109,6 +111,14 @@ class UserProfileScreen extends StatelessWidget {
                   ProfileOptionTile(
                     iconPath: Icons.share_outlined, // Exemple de SVG
                     title: "Partager Urbex Pro",
+                    ontapListtile: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ReferralScreen(),
+                        ),
+                      );
+                    },
                   ),
                   ProfileOptionTile(
                     iconPath: Icons.wallet_outlined, // Exemple de SVG
@@ -137,6 +147,15 @@ class UserProfileScreen extends StatelessWidget {
                   ProfileOptionTile(
                     iconPath: Icons.call_outlined, // Exemple de SVG
                     title: "Support",
+                    ontapListtile: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ContactSupportScreen(),
+                          //builder: (context) => AddHouse(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
