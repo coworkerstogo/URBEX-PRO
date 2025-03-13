@@ -48,7 +48,6 @@ class WidgetScreen extends StatelessWidget{
                     );
                   },
                 ),
-
                 // Container pour gérer la largeur du champ de formulaire
                 CustomFormField(
                   prefixicon: Icons.email, // Icône pour l'email
@@ -56,9 +55,7 @@ class WidgetScreen extends StatelessWidget{
                   controller: _controller,
                   keyboardType: TextInputType.emailAddress, // Type de clavier pour email
                 ),
-              
                 const SizedBox(height: 20),
-
                 CustomCountryFormField(),
                 const SizedBox(height: 20),
 

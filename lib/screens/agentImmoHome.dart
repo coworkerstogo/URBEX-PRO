@@ -24,7 +24,7 @@ class AgentImmoHomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-
+          physics: BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -401,8 +401,8 @@ class ActionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 3.6,
-      height: MediaQuery.of(context).size.width / 3.5,
+      width: MediaQuery.of(context).size.width / 3.5,
+      height: MediaQuery.of(context).size.height / 6.5,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: color,
@@ -444,8 +444,8 @@ class ReportCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 2 - 24,
-      height: 88,
+      width: MediaQuery.of(context).size.width / 2 - 20,
+      height: MediaQuery.of(context).size.width / 2 - 88,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.grey[200],

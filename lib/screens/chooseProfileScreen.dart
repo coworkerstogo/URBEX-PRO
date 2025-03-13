@@ -72,9 +72,10 @@ class ProfileOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
       height: 108,
       margin: EdgeInsets.only(bottom: 20),
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.only(top: 16, left: 16, bottom: 16),
       decoration: BoxDecoration(
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(12),

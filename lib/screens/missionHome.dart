@@ -21,7 +21,7 @@ class MissionHomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-
+          physics: BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,7 +152,7 @@ class MissionHomeScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width / 4.3,
+                      width: MediaQuery.of(context).size.width / 4.5,
                       height: MediaQuery.of(context).size.width / 4.2,
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
@@ -201,6 +201,7 @@ class MissionHomeScreen extends StatelessWidget {
               Container(
                 height: MediaQuery.of(context).size.height/2,
                 child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   itemCount: 16, // Example count
                   itemBuilder: (context, index) {// Alternate between payment and withdrawal
                     return ListTile(

@@ -24,6 +24,7 @@ class AddProductStep1 extends StatelessWidget {
     {"icon": Icons.store_mall_directory, "label": "En Vente"},
 
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +37,7 @@ class AddProductStep1 extends StatelessWidget {
       ),
 
       backgroundColor: AppColors.surface,
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),

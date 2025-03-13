@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:urbex_pro/components/customAppBar.dart';
+import 'package:urbex_pro/screens/waitingScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
 
 
 
 
 class RecapAgendaScreen extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+
     return Scaffold(
       backgroundColor: AppColors.agendaRecapBackColors,
       appBar: CustomAppBar(
@@ -38,9 +45,9 @@ class RecapAgendaScreen extends StatelessWidget {
                       ),
                     ],
                     //width: 163,
-                    width: MediaQuery.of(context).size.width / 2,
+                    width: screenWidth / 2,
                     containerColor: Colors.white,
-                    height: 111,
+                    height: screenHeight / 6,
                     containerChild: Padding(
                       padding: EdgeInsets.all(16),
                       child: Column(
@@ -90,9 +97,9 @@ class RecapAgendaScreen extends StatelessWidget {
                       ),
                     ],
                    // width: 163,
-                    width: MediaQuery.of(context).size.width / 2,
+                    width: screenWidth / 2,
                     containerColor: Colors.white,
-                    height: 111,
+                    height: screenHeight / 6,
                     containerChild: Padding(
                       padding: EdgeInsets.all(16),
                       child: Column(
@@ -126,7 +133,10 @@ class RecapAgendaScreen extends StatelessWidget {
                       ),
                     ),
                     borderRadius: 12,
-                    onTap: () {  },),
+                    onTap: () {
+
+                    },
+                  ),
                   CustomIconButton(
                     customboxshadow: [
                       BoxShadow(
@@ -136,9 +146,9 @@ class RecapAgendaScreen extends StatelessWidget {
                       ),
                     ],
                    // width: 163,
-                    width: MediaQuery.of(context).size.width / 2,
+                    width: screenWidth / 2,
                     containerColor:Colors.white,
-                    height: 111,
+                    height: screenHeight / 6,
                     containerChild: Padding(
                       padding: EdgeInsets.all(16),
                       child: Column(
@@ -181,9 +191,9 @@ class RecapAgendaScreen extends StatelessWidget {
                       ),
                     ],
                    // width: 163,
-                    width: MediaQuery.of(context).size.width / 2,
+                    width: screenWidth / 2,
                     containerColor: Colors.white,
-                    height: 111,
+                    height: screenHeight / 6,
                     containerChild: Padding(
                       padding: EdgeInsets.all(16),
                       child: Column(
@@ -216,8 +226,13 @@ class RecapAgendaScreen extends StatelessWidget {
                       ),
                     ),
                     borderRadius: 12,
-                    onTap: () {  },),
-              
+                    onTap: () {
+                      /*Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WaitingScreen())
+                      );*/
+                    },
+                  ),
                 ],
               ),
             ),

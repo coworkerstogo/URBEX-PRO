@@ -16,7 +16,7 @@ class ChatScreen extends StatelessWidget {
             color: AppColors.textPrimary,
           ),
           title: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5,),
+              padding: const EdgeInsets.only(left: 5,),
               child: Row(
                 children: [
                   CircleAvatar(

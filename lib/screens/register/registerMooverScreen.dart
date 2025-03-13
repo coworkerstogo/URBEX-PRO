@@ -93,10 +93,10 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
                   onTap: () => _onStepTapped(index),
                   isLast: index == _steps.length - 1,
                   stepsDesc: const [
-                    "Informations\nPersonnelles",
-                    "Informations\nde vérification",
-                    "Informations\nde connexion",
-                    "Informations\nsur services",
+                    "Info\nPersonnelles",
+                    "Info\nde vérification",
+                    "Info\nde connexion",
+                    "Info\nsur services",
                     "Conditions\n et politiques",
                   ],
                 ),
@@ -129,7 +129,7 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
                 if(_currentIndex > 0)
                   CustomButton(
                     height: 60,
-                    width: 100,
+                    width: MediaQuery.of(context).size.width / 3,
                     fontsize: 18,
                     btnText: "Précédent",
                     onPressed: _onPrevious,
@@ -141,7 +141,7 @@ class _RegisterMooverScreenState extends State<RegisterMooverScreen> {
 
                 CustomButton(
                   height: 60,
-                  width: 100,
+                  width: MediaQuery.of(context).size.width / 3,
                   fontsize: 18,
                   btnText: _currentIndex == _steps.length -1 ? "Terminer" : "Suivant",
                   onPressed: _currentIndex == _steps.length - 1 ? (){
@@ -239,7 +239,7 @@ class RegisterMooverStep4 extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
                     child: CustomButton(
-                        btnText: "Importer des photos du véhicule",
+                        btnText: "Importer des photos du \n véhicule",
                         btncolor: AppColors.surface,
                         bordersideColor: AppColors.btnPrimary,
                         onPressed: () {
@@ -387,7 +387,7 @@ class RegisterMooverStep2 extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
                     child: CustomButton(
-                        btnText: "Importer votre permis de conduire",
+                        btnText: "Importer votre permis de \n conduire",
                         btncolor: AppColors.surface,
                         bordersideColor: AppColors.btnPrimary,
                         onPressed: () {

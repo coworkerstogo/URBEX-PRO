@@ -7,6 +7,9 @@ import 'package:urbex_pro/theme/app_colors.dart';
 class WalletScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -37,7 +40,7 @@ class WalletScreen extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(left: 20.0, right: 20, top: 50),
-              height: 226,
+              height: screenHeight / 3,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

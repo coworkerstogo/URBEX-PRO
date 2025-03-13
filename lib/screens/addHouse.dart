@@ -60,6 +60,11 @@ class _AddHouseState extends State<AddHouse> {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+
     return Scaffold(
       appBar: const CustomAppBar(
         centerTitle: true,
@@ -112,7 +117,7 @@ class _AddHouseState extends State<AddHouse> {
                 if(_currentIndex > 0)
                   CustomButton(
                     height: 60,
-                    width: 100,
+                    width: screenWidth / 3,
                     fontsize: 18,
                     btnText: "Précédent",
                     onPressed: _onPrevious,
@@ -123,7 +128,7 @@ class _AddHouseState extends State<AddHouse> {
                   ),
                 CustomButton(
                   height: 60,
-                  width: 100,
+                  width: screenWidth / 3,
                   fontsize: 18,
                   btnText: _currentIndex == _steps.length -1 ? "Terminer" : "Suivant",
                   onPressed: _currentIndex == _steps.length - 1 ? (){
@@ -173,6 +178,10 @@ class AddHouseStep1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       child: Column(
@@ -180,7 +189,7 @@ class AddHouseStep1 extends StatelessWidget {
         children: [
           //  CustomTimelineList(),
           Padding(
-            padding: const EdgeInsets.only(top: 34, bottom: 18, left: 19, right: 19 ),
+            padding: const EdgeInsets.only(top: 34, left: 19, right: 19 ),
             child: Column(
               children: [
                 Container(
@@ -199,7 +208,7 @@ class AddHouseStep1 extends StatelessWidget {
                   valueListenable: _selectedIndex,
                   builder: (context, selectedIndex, _) {
                     return SizedBox(
-                      height: 100,
+                      height: screenHeight / 5.5,
                       child: ListView.builder(
                         physics: const BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
@@ -213,38 +222,47 @@ class AddHouseStep1 extends StatelessWidget {
                               _selectedIndex.value = index;
                             },
                             child: Container(
+                              width: 90,
                               margin: const EdgeInsets.symmetric(horizontal: 8),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Card(
-                                    color: isSelected
-                                        ? AppColors.btnPrimary
-                                        : AppColors.formcolor,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    elevation: isSelected ? 6 : 2,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(17),
-                                      child: Icon(
-                                        category["icon"],
-                                        color: isSelected
-                                            ? AppColors.surface
-                                            : AppColors.textSecondary,
-                                        size: 30,
+                                  Align(
+                                    alignment: Alignment.topCenter ,
+                                    child: Card(
+                                      color: isSelected
+                                          ? AppColors.btnPrimary
+                                          : AppColors.formcolor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      elevation: isSelected ? 6 : 2,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(17),
+                                        child: Icon(
+                                          category["icon"],
+                                          color: isSelected
+                                              ? AppColors.surface
+                                              : AppColors.textSecondary,
+                                          size: 30,
+                                        ),
                                       ),
                                     ),
                                   ),
                                   const SizedBox(height: 8),
-                                  Text(
-                                    category["label"],
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color: isSelected
-                                          ? AppColors.btnPrimary
-                                          : AppColors.textSecondary,
+                                  Expanded(
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      category["label"],
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: isSelected
+                                            ? AppColors.btnPrimary
+                                            : AppColors.textSecondary,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -320,6 +338,7 @@ class AddHouseStep1 extends StatelessWidget {
               CustomFormField(
                 title: 'Taille en m²',
                 label: '200',
+                keyboardType: TextInputType.number,
                 controller: TextEditingController(),
               ),
               SizedBox(height: 24,),
@@ -335,6 +354,8 @@ class AddHouseStep1 extends StatelessWidget {
               SizedBox(height: 24,),
               CustomFormField(
                 title: 'Titre',
+                maxlines: 3,
+                formheight: 65,
                 label: 'Le titre à afficher sur votre bien',
                 controller: TextEditingController(),
               ),
@@ -391,7 +412,6 @@ class AddHouseStep2 extends StatelessWidget {
 
           Row(
             children: [
-
               Expanded(
                 flex: 3,
                 child: CustomFormField(
@@ -418,18 +438,21 @@ class AddHouseStep2 extends StatelessWidget {
           CustomFormField(
             title: 'Caution (Fcfa)',
             label: '35.000',
+            keyboardType: TextInputType.number,
             controller: TextEditingController(),
           ),
           SizedBox(height: 19,),
           CustomFormField(
             title: 'Frais de visite (Fcfa)',
             label: '35.000',
+            keyboardType: TextInputType.number,
             controller: TextEditingController(),
           ),
           SizedBox(height: 19,),
           CustomFormField(
             title:'Frais suppléméntaire (Fcfa)' ,
             label: '35.000',
+            keyboardType: TextInputType.number,
             controller: TextEditingController(),
           ),
           SizedBox(height: 19,),
@@ -438,6 +461,8 @@ class AddHouseStep2 extends StatelessWidget {
             child: CustomFormField(
               title:  'Justificatif frais supplémentaire',
               label: 'Justificatif frais supplémentaire',
+              maxlines: 20,
+              formheight: 65,
               controller: TextEditingController(),
             ),
           ),

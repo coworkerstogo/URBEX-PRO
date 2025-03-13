@@ -1,0 +1,2 @@
+C:/Users/USER/StudioProjects/URBEX-PRO/android/app/.cxx/RelWithDebInfo/01y5o1b6/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/USER/StudioProjects/URBEX-PRO/android/app/.cxx/RelWithDebInfo/01y5o1b6/armeabi-v7a/CMakeFiles/rebuild_cache.dir

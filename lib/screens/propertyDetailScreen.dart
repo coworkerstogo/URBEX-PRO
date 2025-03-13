@@ -455,7 +455,7 @@ class InfoIcon extends StatelessWidget {
       children: [
         Icon(icon, size: 22, color: Colors.red),
         const SizedBox(width: 8),
-        Text(text, style: const TextStyle(fontSize: 14, color: Colors.black)),
+        Text(text, style: const TextStyle(fontSize: 12, color: Colors.black)),
       ],
     );
   }

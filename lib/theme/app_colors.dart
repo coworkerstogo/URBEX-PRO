@@ -50,6 +50,4 @@ class AppColors {
   //divers
   static const Color agendaRecapBackColors = Color(0xFFFF2F3F7);
 
-
-
 }

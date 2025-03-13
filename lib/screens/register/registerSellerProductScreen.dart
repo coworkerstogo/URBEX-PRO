@@ -121,7 +121,7 @@ class _RegisterSellerProductScreen extends State<RegisterSellerProductScreen> {
                 if(_currentIndex > 0)
                   CustomButton(
                     height: 60,
-                    width: 100,
+                    width: MediaQuery.of(context).size.width / 3,
                     fontsize: 18,
                     btnText: "Précédent",
                     onPressed: _onPrevious,
@@ -133,7 +133,7 @@ class _RegisterSellerProductScreen extends State<RegisterSellerProductScreen> {
 
                 CustomButton(
                   height: 60,
-                  width: 100,
+                  width: MediaQuery.of(context).size.width / 3,
                   fontsize: 18,
                   btnText: _currentIndex == _steps.length -1 ? "Terminer" : "Suivant",
                   onPressed: _currentIndex == _steps.length - 1 ? (){

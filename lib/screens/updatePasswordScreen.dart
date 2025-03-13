@@ -1,16 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:urbex_pro/screens/successScreen.dart';
-import 'package:urbex_pro/screens/userProfileScreen.dart';
-
 import '../components/customAppBar.dart';
 import '../components/customButton.dart';
 import '../components/customFormField.dart';
-import '../components/smallIconBtn.dart';
 import '../theme/app_colors.dart';
-import 'agentImmoHome.dart';
-import 'otpCodeScreen.dart';
 
 
 class UpdatePasswordScreen extends StatelessWidget {
@@ -76,6 +70,8 @@ class UpdatePasswordScreen extends StatelessWidget {
             CustomFormField(
               prefixicon: Icons.key_outlined,
               label: "Confirmation du mot de passe",
+              maxlines: 3,
+              formheight: 65,
               controller: _controller,
             ),
             const SizedBox(

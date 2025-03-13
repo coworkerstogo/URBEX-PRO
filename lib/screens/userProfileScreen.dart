@@ -78,6 +78,7 @@ class UserProfileScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
+                physics: BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(16),
                 children: [
                   ProfileOptionTile(
@@ -107,6 +108,8 @@ class UserProfileScreen extends StatelessWidget {
                   ProfileOptionTile(
                     iconPath: Icons.share_outlined, // Exemple de SVG
                     title: "Partager Urbex Pro",
+                    ontapListtile: () {
+                    },
                   ),
                   ProfileOptionTile(
                     iconPath: Icons.wallet_outlined, // Exemple de SVG
@@ -135,6 +138,9 @@ class UserProfileScreen extends StatelessWidget {
                   ProfileOptionTile(
                     iconPath: Icons.call_outlined, // Exemple de SVG
                     title: "Support",
+                    ontapListtile: () {
+
+                    },
                   ),
                 ],
               ),
