@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:urbex_pro/screens/addHouse.dart';
+import 'package:urbex_pro/screens/ListeDeMesBiens.dart';
+import 'package:urbex_pro/screens/contactSupportScreen.dart';
+import 'package:urbex_pro/screens/referralScreen.dart';
+import 'package:urbex_pro/screens/register/register.dart';
 import 'package:urbex_pro/screens/register/registerAgentScreen.dart';
 import 'package:urbex_pro/components/smallIconBtn.dart';
 import 'package:urbex_pro/screens/settingScreen.dart';
@@ -78,7 +81,6 @@ class UserProfileScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
-                physics: BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(16),
                 children: [
                   ProfileOptionTile(
@@ -100,7 +102,8 @@ class UserProfileScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AddHouse(),
+                          builder: (context) => ListeDeMesBiensScreen(),
+                           //builder: (context) => AddHouse(),
                         ),
                       );
                     },
@@ -108,7 +111,13 @@ class UserProfileScreen extends StatelessWidget {
                   ProfileOptionTile(
                     iconPath: Icons.share_outlined, // Exemple de SVG
                     title: "Partager Urbex Pro",
-                    ontapListtile: () {
+                    ontapListtile: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ReferralScreen(),
+                        ),
+                      );
                     },
                   ),
                   ProfileOptionTile(
@@ -138,8 +147,14 @@ class UserProfileScreen extends StatelessWidget {
                   ProfileOptionTile(
                     iconPath: Icons.call_outlined, // Exemple de SVG
                     title: "Support",
-                    ontapListtile: () {
-
+                    ontapListtile: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ContactSupportScreen(),
+                          //builder: (context) => AddHouse(),
+                        ),
+                      );
                     },
                   ),
                 ],
@@ -152,7 +167,7 @@ class UserProfileScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RegisterAgentScreen(),
+                        builder: (context) => Register(),
                       ),
                     );
                   },

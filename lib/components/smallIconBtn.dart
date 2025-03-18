@@ -28,28 +28,31 @@ class smallIconBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: width ??  44,
-          height: height ?? 44,
-          decoration: BoxDecoration(
-            color: btncolor ?? Colors.white, // Couleur de fond blanche
-            borderRadius: radius ??  BorderRadius.circular(16), // Rayon de bordure
-            boxShadow: [
-              BoxShadow(
-                color: shadowColor ?? Colors.black.withOpacity(0.1), // Ombre légère
-                blurRadius: 4, // Flou de l'ombre
-                offset: Offset(0, 2), // Décalage de l'ombre
-              ),
-            ],
-            border: border,  // Applique la bordure si elle est définie
+    return InkWell(
+      onTap: onPressed,
+      child: Column(
+        children: [
+          Container(
+            width: width ??  44,
+            height: height ?? 44,
+            decoration: BoxDecoration(
+              color: btncolor ?? Colors.white, // Couleur de fond blanche
+              borderRadius: radius ??  BorderRadius.circular(16), // Rayon de bordure
+              boxShadow: [
+                BoxShadow(
+                  color: shadowColor ?? Colors.black.withOpacity(0.1), // Ombre légère
+                  blurRadius: 4, // Flou de l'ombre
+                  offset: Offset(0, 2), // Décalage de l'ombre
+                ),
+              ],
+              border: border,  // Applique la bordure si elle est définie
+            ),
+            child: btnicon,
           ),
-          child: btnicon,
-        ),
-        SizedBox(height: bottomTitleSpace ?? 0,),
-        bottomTitle,
-      ],
+          SizedBox(height: bottomTitleSpace ?? 0,),
+          bottomTitle,
+        ],
+      ),
     );
   }
 }

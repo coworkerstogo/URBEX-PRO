@@ -6,11 +6,13 @@ import 'package:urbex_pro/screens/addHouse.dart';
 import 'package:urbex_pro/screens/chatScreen.dart';
 import 'package:urbex_pro/screens/loginScreen.dart';
 import 'package:urbex_pro/screens/missionHome.dart';
+import 'package:urbex_pro/screens/notificationScreen.dart';
 import 'package:urbex_pro/screens/onboardingScreen.dart';
 import 'package:urbex_pro/screens/propertyDetailScreen.dart';
 import 'package:urbex_pro/screens/register/registerMooverScreen.dart';
 import 'package:urbex_pro/screens/register/registerSellerProductScreen.dart';
 import 'package:urbex_pro/screens/register/registerServiceProviderScreen.dart';
+import 'package:urbex_pro/screens/waitingListScreen.dart';
 import 'package:urbex_pro/screens/waitingScreen.dart';
 import 'package:urbex_pro/screens/widgetScreen.dart';
 import 'package:urbex_pro/theme/app_colors.dart';
@@ -75,6 +77,14 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     ),
                     shadowColor: Colors.transparent,
                     radius: BorderRadius.circular(8),
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NotificationScreen(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -238,6 +248,18 @@ class AgentImmoHomeScreen extends StatelessWidget {
                     );
                   },
                   child: Text('agent immo home Screen')
+              ),
+              TextButton(
+                  onPressed: () {
+                    //Navigator.pushNamed(context, routeName)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WaitingListScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('waiting list Screen')
               ),
               TextButton(
                   onPressed: () {

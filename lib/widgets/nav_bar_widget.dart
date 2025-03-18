@@ -19,9 +19,8 @@ class NavbarWidget extends StatelessWidget {
             print("Constraints: $constraints");
             return BlocBuilder<MenuManagerBloc, MenuManagerState>(
               builder: (context, state) {
-                return Expanded(
-                 // width: MediaQuery.of(context).size.width,
-                  //height: 90,
+                return Container(
+                  width: MediaQuery.of(context).size.width,
                   child: DotNavigationBar(
                     marginR: EdgeInsets.symmetric(horizontal: 20),
                     paddingR: EdgeInsets.all(15),

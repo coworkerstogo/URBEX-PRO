@@ -175,8 +175,8 @@ class _RegisterAgentScreenState extends State<RegisterAgentScreen> {
 
 
 class ConditionsPolitiquesScreen extends StatelessWidget {
-  final VoidCallback onNext;
-  ConditionsPolitiquesScreen({super.key, required this.onNext});
+  final VoidCallback? onNext;
+  ConditionsPolitiquesScreen({super.key,  this.onNext});
   final ValueNotifier<bool> isChecked = ValueNotifier<bool>(false);
 
   @override
@@ -314,7 +314,7 @@ class ConditionsPolitiquesScreen extends StatelessWidget {
 
 
 class RegisterAgentStep4 extends StatelessWidget {
-  final VoidCallback onNext;
+  final VoidCallback? onNext;
   final ValueNotifier<String?> selectedItem = ValueNotifier<String?>(null);
   final ValueNotifier<List<String>> selectedTopicsNotifier = ValueNotifier([]);
   final List<String> topics = [
@@ -322,7 +322,7 @@ class RegisterAgentStep4 extends StatelessWidget {
     'Boutique', 'Villa', 'Appart Meublé',
     'Salle d\'évènement', 'Hôtel'
   ];
-  RegisterAgentStep4({super.key, required this.onNext});
+  RegisterAgentStep4({super.key,  this.onNext});
 
   @override
   Widget build(BuildContext context) {
@@ -406,9 +406,9 @@ class RegisterAgentStep4 extends StatelessWidget {
 
 
 class RegisterAgentStep3 extends StatelessWidget {
-  final VoidCallback onNext;
+  final VoidCallback? onNext;
   final TextEditingController _controller = TextEditingController();
-  RegisterAgentStep3({super.key, required this.onNext});
+  RegisterAgentStep3({super.key, this.onNext});
 
   @override
   Widget build(BuildContext context) {
@@ -458,9 +458,9 @@ class RegisterAgentStep3 extends StatelessWidget {
 
 
 class RegisterAgentStep2 extends StatelessWidget {
-  final VoidCallback onNext;
+  final VoidCallback? onNext;
   final TextEditingController _controller = TextEditingController();
-  RegisterAgentStep2({super.key, required this.onNext});
+  RegisterAgentStep2({super.key, this.onNext});
 
   @override
   Widget build(BuildContext context) {
@@ -529,125 +529,122 @@ class RegisterAgentStep2 extends StatelessWidget {
 
 
 class RegisterAgentStep1 extends StatelessWidget {
-  final VoidCallback onNext;
+  final VoidCallback? onNext;
   final TextEditingController _controller = TextEditingController();
-  RegisterAgentStep1({super.key, required this.onNext });
+  RegisterAgentStep1({super.key,  this.onNext });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.surface,
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          children: [
+    return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
+      child: Column(
+        children: [
 
-            SizedBox(height: 34,),
+          SizedBox(height: 34,),
 
-            CustomFormField(
-                prefixicon: Icons.person_outlined,
-                label: "Nom",
-                controller: _controller
-            ),
+          CustomFormField(
+              prefixicon: Icons.person_outlined,
+              label: "Nom",
+              controller: _controller
+          ),
 
-            SizedBox(height: 19,),
-            CustomFormField(
-                prefixicon: Icons.person_outlined,
-                label: "Prénom",
-                controller: _controller
-            ),
+          SizedBox(height: 19,),
+          CustomFormField(
+              prefixicon: Icons.person_outlined,
+              label: "Prénom",
+              controller: _controller
+          ),
 
-            SizedBox(height: 19,),
-            CustomFormField(
-                prefixicon: Icons.real_estate_agent_outlined,
-                label: "Nom de l'agence",
-                controller: _controller
-            ),
+          SizedBox(height: 19,),
+          CustomFormField(
+              prefixicon: Icons.real_estate_agent_outlined,
+              label: "Nom de l'agence",
+              controller: _controller
+          ),
 
-            SizedBox(height: 19,),
+          SizedBox(height: 19,),
 
-            CustomCountryFormField(),
+          CustomCountryFormField(),
 
-            SizedBox(height: 19,),
+          SizedBox(height: 19,),
 
-            CustomFormField(
-                prefixicon: Icons.email_outlined,
-                label: "Email",
-                controller: _controller
-            ),
+          CustomFormField(
+              prefixicon: Icons.email_outlined,
+              label: "Email",
+              controller: _controller
+          ),
 
-            SizedBox(height: 19,),
+          SizedBox(height: 19,),
 
-            CustomFormField(
-                prefixicon: Icons.location_on_outlined,
-                label: "Adresse",
-                controller: _controller
-            ),
+          CustomFormField(
+              prefixicon: Icons.location_on_outlined,
+              label: "Adresse",
+              controller: _controller
+          ),
 
-            Padding(
-              padding: const EdgeInsets.only(top: 19, left: 19, right: 19),
-              child: SizedBox(
-                height: 140,
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: AppColors.textSecondary)
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
-                    child: CustomButton(
-                        btnText: "Importer une photo de profile",
-                        btncolor: AppColors.surface,
-                        bordersideColor: AppColors.btnPrimary,
-                        onPressed: () {
+          Padding(
+            padding: const EdgeInsets.only(top: 19, left: 19, right: 19),
+            child: SizedBox(
+              height: 140,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: AppColors.textSecondary)
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 72, bottom:  15, left: 15, right: 15),
+                  child: CustomButton(
+                      btnText: "Importer une photo de profile",
+                      btncolor: AppColors.surface,
+                      bordersideColor: AppColors.btnPrimary,
+                      onPressed: () {
 
-                        },
-                        lendingWidget: Icon(
-                          Icons.add,
-                          color: AppColors.textSecondary,
-                        ),
-                        textColor: AppColors.textSecondary,
-                        trailingWidget: SizedBox()
-                    ),
+                      },
+                      lendingWidget: Icon(
+                        Icons.add,
+                        color: AppColors.textSecondary,
+                      ),
+                      textColor: AppColors.textSecondary,
+                      trailingWidget: SizedBox()
                   ),
                 ),
               ),
             ),
+          ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("J'ai un compte ",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: AppColors.textPrimary,
-                    fontWeight: FontWeight.w500,
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("J'ai un compte ",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: AppColors.textPrimary,
+                  fontWeight: FontWeight.w500,
                 ),
-                TextButton(
-                    onPressed: (){
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
-                          )
-                      );
-                    },
-                    child: Text(
-                      "Je me connecte",
-                      style: TextStyle(
-                        color: AppColors.btnPrimary,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                )
-              ],
-            ),
+              ),
+              TextButton(
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreen(),
+                        )
+                    );
+                  },
+                  child: Text(
+                    "Je me connecte",
+                    style: TextStyle(
+                      color: AppColors.btnPrimary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+              )
+            ],
+          ),
 
-            SizedBox(height: 30,)
-          ],
-        ),
+          SizedBox(height: 30,)
+        ],
       ),
     );
   }

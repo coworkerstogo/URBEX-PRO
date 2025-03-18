@@ -47,6 +47,7 @@ class CustomFormField extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
             ),
+          SizedBox(height: 10,),
           Container(
             height: formheight ?? 54,
             width: formwidth ?? MediaQuery.of(context).size.width, // Largeur de l'écran moins la marge de chaque côté

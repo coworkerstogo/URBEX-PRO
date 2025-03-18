@@ -49,5 +49,6 @@ class AppColors {
 
   //divers
   static const Color agendaRecapBackColors = Color(0xFFFF2F3F7);
+  static const Color supportbloccolor = Color(0xFFF0EFF4);
 
 }
